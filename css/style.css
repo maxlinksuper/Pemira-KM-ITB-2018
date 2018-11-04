@@ -23,10 +23,34 @@ html, body {
 }
 
 .kawung {
-	border: solid 2px grey;
 	width: 100px;
 	height: 100px;
     position: absolute;
+}
+
+.kawung-img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.kawung-img-active {
+    animation: rotate 20s infinite;
+}
+
+.candidate-img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.filter {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(720deg);
+    }
 }
 
 #kawung-atas {
@@ -51,6 +75,13 @@ html, body {
 	border: solid 2px grey;
 	width: calc(100% - 4px);
 	height: 90%;
+    background-image: url("../img/Welcome-Image.png");
+}
+
+.thanks-image {
+    border: solid 2px grey;
+    width: calc(100% - 4px);
+    height: 90%;
 }
 
 .inside {
@@ -121,10 +152,9 @@ input {
 
 .timer {
     position: absolute;
-    border: solid 2px grey;
     margin: 30px 0px 0px 80px;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border-radius: 80px;
     float : left;
     box-sizing: unset;
@@ -156,6 +186,11 @@ input {
     margin: 40px 30px;
 }
 
+.candidate-active {
+    background-color: grey;
+    color: white;
+}
+
 .candidate:hover {
     cursor: pointer;
     background-color: grey;
@@ -163,13 +198,11 @@ input {
 }
 
 .kawung-kecil {
-    border: solid 2px grey;
     width: 80px;
     height: 80px;
     position: absolute;
     transform: translateX(-40px) translateY(-40px);
     z-index: 2;
-    background-color: white;
     color: black;
 }
 
@@ -190,7 +223,6 @@ input {
 }
 
 .kawung-chosen {
-    border: solid 2px grey;
     width: 120px;
     height: 120px;
     position: absolute;
