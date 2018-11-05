@@ -48,6 +48,17 @@ app.on('ready', function() {
             });
         }
     });
+    globalShortcut.register('Ctrl+Alt+C', function() {
+        axios.get('http://localhost/calon.php', {
+            params: {
+                type: 0
+            }
+        }). then(function (response) {
+            console.log(response);
+            var c = response.data;
+            console.log(c[1]);
+        })
+    })
     mainWindow.on('closed', function(){
         app.quit();
     });
@@ -90,8 +101,8 @@ ipc.on('readrule', function(event, arg) {
     }
 });
 
-ipc.on('choose', function(event, arg) {
-    if (arg == 1) {
+ipc.on('choose', function(event, arg1) {
+    if (arg1 == 1) {
         mainWindow.loadFile('president-confirmation.html');
     }
     else {
