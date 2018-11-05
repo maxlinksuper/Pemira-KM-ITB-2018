@@ -7,7 +7,8 @@ const axios = require ('axios');
 
 var count = 0;
 var MWAactive = 0;
-var host = "localhost";
+global.sharedObj = {host: "localhost"};
+global.sharedObj = {pilihanKM: -1, pilihanMWA: -1};
 var port = "";
 
 const { app , BrowserWindow, globalShortcut } = require ('electron');

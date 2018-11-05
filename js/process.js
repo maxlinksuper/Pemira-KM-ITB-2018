@@ -1,5 +1,6 @@
 const electron = require('electron');
 const ipc = electron.ipcRenderer;
+const remote = electron.remote;
 
 var NIM = document.getElementById('nim');
 
@@ -56,6 +57,9 @@ if (confirm2) {
     });
 }
 
+var choice = document.getElementById("selected");
+var choice2 = document.getElementById("selected2");
+
 function select1(index_candidate) {
     var prev = document.getElementById("selected").innerHTML;
     var choose = document.getElementById('pilih');
@@ -66,10 +70,10 @@ function select1(index_candidate) {
         x[index_candidate].classList.add("candidate-active");
         y[index_candidate].classList.add("kawung-img-active");
         z[index_candidate].classList.remove("filter");
-        document.getElementById("selected").innerHTML = index_candidate;
+        choice.innerHTML = index_candidate;
     }
     else {
-        document.getElementById("selected").innerHTML = -1;
+        choice.innerHTML = -1;
     }
     if (prev != -1) {
         x[prev].classList.remove("candidate-active");
@@ -78,8 +82,8 @@ function select1(index_candidate) {
     }
     if(choose) {
         choose.addEventListener("click", function(){
+            remote.getGlobal('sharedObj').pilihanKM = choice.innerHTML;
             ipc.send('choose', 1);
-            choice = document.getElementById("selected").innerHTML;
         });
     }
 }
@@ -94,10 +98,10 @@ function select2(index_candidate) {
         x[index_candidate].classList.add("candidate-active");
         y[index_candidate].classList.add("kawung-img-active");
         z[index_candidate].classList.remove("filter");
-        document.getElementById("selected2").innerHTML = index_candidate;
+        choice2.innerHTML = index_candidate;
     }
     else {
-        document.getElementById("selected2").innerHTML = -1;
+        choice2.innerHTML = -1;
     }
     if (prev != -1) {
         x[prev].classList.remove("candidate-active");
@@ -106,9 +110,8 @@ function select2(index_candidate) {
     }
     if (choose2) {
         choose2.addEventListener("click", function(){
+            remote.getGlobal('sharedObj').pilihanMWA = choice2.innerHTML;
             ipc.send('choose', 2);
-            setInterval(2000);
-            ipc.send('chosen', document.getElementById("selected").innerHTML);
         })
     }
 }

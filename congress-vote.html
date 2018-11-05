@@ -3,9 +3,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script>window.$ = window.jQuery = require('jquery');</script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/TimeCircles.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
     <link rel="stylesheet" href="css/TimeCircles.css" />
 </head>
 
@@ -76,6 +76,7 @@
     function countdownComplete(unit, value, total){
         if(total<=0){
             $(this).fadeOut('slow').replaceWith("<h2>Time's Up!</h2>");
+            
         }
     }
 </script>
