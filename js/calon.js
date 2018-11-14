@@ -3,7 +3,7 @@ var calon = document.getElementById("candidate-container");
 var calon2 = document.getElementById("candidate-container2");
 
 if(calon) {
-    axios.get('http://localhost/calon.php', {
+    axios.get('http://' + remote.getGlobal('sharedObj').host + '/calon.php', {
         params: {
             type: 0
         }
@@ -11,6 +11,7 @@ if(calon) {
         var c = response.data;
         const container = document.getElementById("candidate-container");
         var i = 0;
+        var img = "";
         c.forEach(element => {
             container.innerHTML += `
             <div class="col-2 candidate" id="candidate${i}" onclick="select1(${i});">
@@ -29,7 +30,7 @@ if(calon) {
 }
 
 if (calon2) {
-    axios.get('http://localhost/calon.php', {
+    axios.get('http://' + remote.getGlobal('sharedObj').host + '/calon.php', {
         params: {
             type: 1
         }

@@ -239,10 +239,9 @@ input {
     width: 120px;
 }
 
-#accept {
+#accept,#accept2 {
     margin-left: calc(90%);
 }
-
 .thanks {
     width: 70%;
     max-width: 600px;

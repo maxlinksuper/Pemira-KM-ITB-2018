@@ -1,14 +1,14 @@
 const axios = require("axios");
-
 const chosen1 = document.getElementById("chosen-container");
 const chosen2 = document.getElementById("chosen-container2");
 if (chosen1) {
-    axios.get('http://localhost/calon.php', {
+    axios.get('http://' + remote.getGlobal('sharedObj').host +'/calon.php', {
         params: {
             type: 0
         }
     }). then(function (response) {
-        console.log(response.data[remote.getGlobal('sharedObj').pilihanKM]);
+        // console.log(response.data[1]);
+        // console.log(response.data[remote.getGlobal('sharedObj').pilihanKM]);
         chosen1.innerHTML += `
             <div class="candidate-chosen">
                 <div class="kawung-chosen">
@@ -17,7 +17,7 @@ if (chosen1) {
                     </div>
                 </div>
                 <div class="inside">
-                    Gambar kandidat Pilihan
+                    ${response.data[remote.getGlobal('sharedObj').pilihanKM].nama}
                 </div>
             </div>
         `;
@@ -25,12 +25,12 @@ if (chosen1) {
 }
 
 if (chosen2) {
-    axios.get('http://localhost/calon.php', {
+    axios.get('http://' + remote.getGlobal('sharedObj').host +'/calon.php', {
         params: {
             type: 1
         }
     }). then(function (response) {
-        console.log(response.data[remote.getGlobal('sharedObj').pilihanMWA]);
+        // console.log(response.data[remote.getGlobal('sharedObj').pilihanMWA]);
         chosen2.innerHTML += `
             <div class="candidate-chosen">
                 <div class="kawung-chosen"> 
@@ -39,7 +39,7 @@ if (chosen2) {
                     </div>
                 </div>
                 <div class="inside">
-                    Gambar kandidat Pilihan
+                   ${response.data[remote.getGlobal('sharedObj').pilihanMWA].nama}
                 </div>
             </div>
         `;

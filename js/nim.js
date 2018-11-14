@@ -9,7 +9,7 @@ if (NIM) {
         event.preventDefault();
         if (event.keyCode == 13) {
             // ipc.send('nim-pemilih');
-            axios.post('http://localhost/test.php', {
+            axios.post('http://' + remote.getGlobal('sharedObj') + '/test.php', {
                 nim: document.getElementById('nim').value,
                 cmd: 1  
             }).then(function (response) {

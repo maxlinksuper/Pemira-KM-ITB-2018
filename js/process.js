@@ -1,6 +1,7 @@
 const electron = require('electron');
 const ipc = electron.ipcRenderer;
 const remote = electron.remote;
+const {dialog} = require('electron');
 
 var NIM = document.getElementById('nim');
 
@@ -8,7 +9,13 @@ if (NIM) {
     NIM.addEventListener("keyup", function(event) {
         event.preventDefault();
         if (event.keyCode == 13) {
-            ipc.send('nim-pemilih', document.getElementById('nim').value);
+            if (NIM.value.length == 8) {
+                remote.getGlobal('sharedObj').nimPemilih = NIM.value;
+                ipc.send('nim-pemilih', NIM.value);
+            }
+            else {
+                ipc.send('error-handling', 0);
+            }
         }
     });
 }
@@ -57,9 +64,6 @@ if (confirm2) {
     });
 }
 
-var choice = document.getElementById("selected");
-var choice2 = document.getElementById("selected2");
-
 function select1(index_candidate) {
     var prev = document.getElementById("selected").innerHTML;
     var choose = document.getElementById('pilih');
@@ -70,10 +74,10 @@ function select1(index_candidate) {
         x[index_candidate].classList.add("candidate-active");
         y[index_candidate].classList.add("kawung-img-active");
         z[index_candidate].classList.remove("filter");
-        choice.innerHTML = index_candidate;
+        document.getElementById("selected").innerHTML = index_candidate;
     }
     else {
-        choice.innerHTML = -1;
+        document.getElementById("selected").innerHTML = -1;
     }
     if (prev != -1) {
         x[prev].classList.remove("candidate-active");
@@ -82,7 +86,8 @@ function select1(index_candidate) {
     }
     if(choose) {
         choose.addEventListener("click", function(){
-            remote.getGlobal('sharedObj').pilihanKM = choice.innerHTML;
+            remote.getGlobal('sharedObj').pilihanKM = document.getElementById("selected").innerHTML;
+            console.log(remote.getGlobal('sharedObj').pilihanKM);
             ipc.send('choose', 1);
         });
     }
@@ -98,10 +103,10 @@ function select2(index_candidate) {
         x[index_candidate].classList.add("candidate-active");
         y[index_candidate].classList.add("kawung-img-active");
         z[index_candidate].classList.remove("filter");
-        choice2.innerHTML = index_candidate;
+        document.getElementById("selected2").innerHTML = index_candidate;
     }
     else {
-        choice2.innerHTML = -1;
+        document.getElementById("selected2").innerHTML = -1;
     }
     if (prev != -1) {
         x[prev].classList.remove("candidate-active");
@@ -110,8 +115,36 @@ function select2(index_candidate) {
     }
     if (choose2) {
         choose2.addEventListener("click", function(){
-            remote.getGlobal('sharedObj').pilihanMWA = choice2.innerHTML;
+            remote.getGlobal('sharedObj').pilihanMWA = document.getElementById("selected2").innerHTML;
             ipc.send('choose', 2);
         })
     }
 }
+
+var thank = document.getElementById("thanks");
+if (thank) {
+    document.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if(event.keyCode == 13 && event.keyCode == 84) {
+            ipc.send('reset');
+        }
+    })
+}
+
+var signin = document.getElementById("signin");
+if (signin) {
+    signin.addEventListener("click", function(event) {
+        var tpsP = document.getElementById("uPwd").value;
+        ipc.send('signin', tpsP);
+    })
+}
+
+var setip = document.getElementById("setip");
+if (setip) {
+    setip.addEventListener("click", function(event) {
+        var ipAddr = document.getElementById("ipaddr");
+        ipc.send('set-ip', ipAddr);
+    })
+}
+
+
