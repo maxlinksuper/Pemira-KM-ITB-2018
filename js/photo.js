@@ -45,6 +45,7 @@ $(document).ready( function() {
     });
 
     $('#formID').submit(function(event) {
+        console.log("Tersubmit")
         if (this.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
@@ -52,14 +53,16 @@ $(document).ready( function() {
         else {
             var dari = -1;
             if (document.getElementById('president').checked == true) {
+                console.log("President checked")
                 dari = 0;
             }
             if (document.getElementById('congress').checked == true) {
+                console.log("Mwa checked")
                 dari = 1;
             }
             console.log(dari);
             readURL($("#imgInp")[0], function(base64Image) {
-                $.post( 'http:\\' + remote.getGlobal('sharedObj').host + '\test.php', {
+                $.post( 'http://' + remote.getGlobal('sharedObj').host + '/test.php', {
                         nama : $('#name').val(),
                         nim : $('#nim').val(),
                         cDari : dari,
@@ -72,6 +75,8 @@ $(document).ready( function() {
                     }
                 );
             });
+            console.log("Terkirim")
+            ipc.send('addcandidate');
         }
         this.classList.add('was-validated');
     });

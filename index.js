@@ -234,5 +234,5 @@ ipc.on('set-ip', function(event,arg) {
 })
 
 ipc.on('addcandidate', function() {
-    // addCalonWindow.close();
+    addCalonWindow.close();
 })
