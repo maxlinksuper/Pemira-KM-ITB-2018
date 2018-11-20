@@ -237,10 +237,9 @@ input {
     width: 120px;
 }
 
-#accept {
+#accept,#accept2 {
     margin-left: calc(90%);
 }
-
 .thanks {
     width: 70%;
     max-width: 600px;
@@ -261,7 +260,6 @@ input {
     z-index: 2;
     background-color: white;
 }
-
 .begin {
     background-image: url("../img/selamat-datang.jpg");
 }
@@ -324,3 +322,4 @@ input {
     from { background-position: 0 -626px; }
     to { background-position: 0 0px; }
 }
+

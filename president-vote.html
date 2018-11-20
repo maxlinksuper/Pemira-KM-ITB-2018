@@ -6,8 +6,8 @@
     <script>window.$ = window.jQuery = require('jquery');</script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/TimeCircles.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
     <link rel="stylesheet" href="css/TimeCircles.css" />
+    <script src="js/process.js"></script>
 </head>
 
 <body>
@@ -34,7 +34,8 @@
     </div>
 
     <div class="row justify-content-center" id="candidate-container">
-        <div class="col-2 candidate" id="candidate0" onclick="select(0);">
+        <script src="js/calon.js"></script>
+        <!-- <div class="col-2 candidate" id="candidate0" onclick="select(0);">
             <div class="kawung-kecil">
                 <img src="img/kawung.png" class="kawung-img">
             </div>
@@ -68,11 +69,11 @@
             <div class="inside">
                 <img src="img/man1.png" class="candidate-img filter">
             </div>
-        </div>
+        </div> -->
         <div id="selected" style="display: none">-1</div>
+        
     </div>
     <button class="d-block p-2 rule-button" id="pilih">Pilih</button>
-    <script src="js/process.js"></script>
 </div>
 
 <script>
@@ -85,6 +86,8 @@
     function countdownComplete(unit, value, total){
         if(total<=0){
             $(this).fadeOut('slow').replaceWith("<h2>Time's Up!</h2>");
+            remote.getGlobal('sharedObj').pilihanKM = document.getElementById("selected").innerHTML;
+            ipc.send('choose',1);
         }
     }
 </script>
