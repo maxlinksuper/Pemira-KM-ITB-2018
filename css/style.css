@@ -7,19 +7,18 @@ html, body {
     min-height: 100%;
     height: 100%;
     overflow: hidden;
+    position: relative;
+}
+
+.logo {
+    float: right;
+    display: inline-flex;
+    margin-right: 60px;
 }
 
 .logo-image {
-	border: solid 2px grey;
-	width: 60px;
-	height: 60px;
-	float : right;
-	margin: 10px;
     box-sizing: unset;
-}
-
-.logo-image .inside {
-    font-size: small;
+    margin-left: 5px;
 }
 
 .kawung {
@@ -64,18 +63,17 @@ html, body {
 
 .welcome {
 	width: 50%;
-    max-width: 500px;
-    min-width: 500px;
+    max-width: 720px;
+    min-width: 720px;
 	height: 50%;
 	align-items: center;
-    margin: 20vh auto 0 auto;
+    margin: 18vh auto 0 auto;
 }
 
 .welcome-image {
-	border: solid 2px grey;
-	width: calc(100% - 4px);
-	height: 90%;
-    background-image: url("../img/Welcome-Image.png");
+	width: 100%;
+	height: 70%;
+    overflow: hidden;
 }
 
 .thanks-image {
@@ -98,12 +96,12 @@ form {
     overflow: auto;
 }
 input {
-    width: 60%;
+    width: 35%;
     margin: auto;
-    margin-top: 20px;
-    margin-left: 20%;
+    margin-top: 25px;
+    margin-left: 32%;
     text-align: center;
-    height: 50px;
+    height: 45px;
     font-size: xx-large;
 }
 
@@ -262,3 +260,48 @@ input {
     z-index: 2;
     background-color: white;
 }
+.begin {
+    background-image: url("../img/selamat-datang.jpg");
+}
+
+#image-orang {
+    width: 500px;
+    margin-left: 110px;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+}
+
+.ornamen-left {
+    width: 50px;
+    height: 100%;
+    margin-left: 40px;
+    position: absolute;
+    background-image: url("../img/kawung.png");
+    background-size: 50px auto;
+    background-repeat: repeat-y;
+    -webkit-animation: slide-up 40s linear infinite;
+}
+
+@-webkit-keyframes slide-up {
+    from { background-position: 0 0; }
+    to { background-position: 0 -626px; }
+}
+
+.ornamen-right {
+    float: right;
+    width: 50px;
+    height: 100%;
+    margin-right: 40px;
+    position: relative;
+    background-image: url("../img/kawung.png");
+    background-size: 50px auto;
+    background-repeat: repeat-y;
+    -webkit-animation: slide-down 40s linear infinite;
+}
+
+@-webkit-keyframes slide-down {
+    from { background-position: 0 -626px; }
+    to { background-position: 0 0px; }
+}
+
