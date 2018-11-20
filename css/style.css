@@ -266,12 +266,32 @@ input {
     background-image: url("../img/selamat-datang.jpg");
 }
 
-#image-orang {
-    width: 500px;
-    margin-left: 110px;
+.end {
+    background-image: url("../img/terima-kasih.jpg");
+}
+
+.image-orang {
     text-align: center;
     position: absolute;
     bottom: 0px;
+}
+
+#image-orang-1 {
+    margin-left: 110px;
+    width: 500px;
+}
+
+#image-orang-2 {
+    margin-left: 160px;
+    width: 400px;
+}
+
+.ornamen1 {
+    background-image: url("../img/ornamen-1.png");
+}
+
+.ornamen2 {
+    background-image: url("../img/ornamen-2.png");
 }
 
 .ornamen-left {
@@ -279,7 +299,6 @@ input {
     height: 100%;
     margin-left: 40px;
     position: absolute;
-    background-image: url("../img/kawung.png");
     background-size: 50px auto;
     background-repeat: repeat-y;
     -webkit-animation: slide-up 40s linear infinite;
@@ -296,7 +315,6 @@ input {
     height: 100%;
     margin-right: 40px;
     position: relative;
-    background-image: url("../img/kawung.png");
     background-size: 50px auto;
     background-repeat: repeat-y;
     -webkit-animation: slide-down 40s linear infinite;
