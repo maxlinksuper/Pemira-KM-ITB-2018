@@ -87,7 +87,8 @@ html, body {
     float: left;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-70%, -50%);
+    z-index: 2;
 }
 
 form {
@@ -115,37 +116,34 @@ input {
 }
 
 .leftImage {
-    border: solid 2px grey;
+    transform: translateX(20%);
     width: 100%;
-    height: 350px;
+    height: 100%;
 }
 
 .rule-title {
     font-size: 30px;
     text-align: center;
-    border: solid 2px grey;
 }
 
 .rule-desc {
-    border: solid 2px grey;
     height: 49%;
     font-size: xx-large;
-    margin: 10px;
 }
 
 .rule-button {
-    margin: auto;
+    margin-left: 50%;
     height: 40px;
     width: 100px;
-    background-color: white;
     vertical-align: middle;
-    border: solid 2px grey;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    padding: 0 !important;
 }
 
 .rule-button:hover {
-    background-color: grey;
     cursor: pointer;
-    color: white;
 }
 
 .timer {
@@ -268,6 +266,10 @@ input {
     background-image: url("../img/terima-kasih.jpg");
 }
 
+.president {
+    background-image: url("../img/latar-presiden.png");
+}
+
 .image-orang {
     text-align: center;
     position: absolute;
@@ -290,6 +292,30 @@ input {
 
 .ornamen2 {
     background-image: url("../img/ornamen-2.png");
+}
+
+.kawung1 {
+    background-image: url("../img/kawung-2.png");
+    background-size: 330px auto;
+}
+
+.kawung3 {
+    background-image: url("../img/kawung-1.png");
+    background-size: 200px auto;
+}
+
+.kawung-top {
+    height: 330px;
+    width: 330px;
+    z-index: 1;
+    margin: 8% 0 0 -7%;
+}
+
+.kawung-down {
+    height: 200px;
+    width: 200px;
+    z-index: 1;
+    margin: 150px 0 0 -30px;
 }
 
 .ornamen-left {
@@ -323,3 +349,8 @@ input {
     to { background-position: 0 0px; }
 }
 
+.grande {
+    font-family: "GrandeeCP", serif;
+    font-weight: bolder;
+    font-size: xx-large;
+}
