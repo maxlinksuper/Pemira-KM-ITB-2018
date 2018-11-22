@@ -116,9 +116,12 @@ input {
 }
 
 .leftImage {
-    transform: translateX(20%);
     width: 100%;
     height: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+
 }
 
 .rule-title {
@@ -131,19 +134,43 @@ input {
     font-size: xx-large;
 }
 
+#rule-desc {
+    padding: 20px 0 0 80px;
+}
+
 .rule-button {
-    margin-left: 50%;
     height: 40px;
-    width: 100px;
+    width: 70px;
     vertical-align: middle;
     background-color: Transparent;
     background-repeat:no-repeat;
     border: none;
     padding: 0 !important;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.rule-button:after {
+    position: absolute;
+    transition: .3s;
+    content: '';
+    width: 0;
+    left: 50%;
+    bottom: 0;
+    height: 3px;
+    background: #382736;
 }
 
 .rule-button:hover {
     cursor: pointer;
+}
+
+.rule-button:hover:after {
+    width: 100%;
+    left: 0;
 }
 
 .timer {
@@ -301,21 +328,20 @@ input {
 
 .kawung3 {
     background-image: url("../img/kawung-1.png");
-    background-size: 200px auto;
+    background-size: 180px auto;
+    background-repeat: no-repeat;
 }
 
 .kawung-top {
     height: 330px;
     width: 330px;
-    z-index: 1;
-    margin: 8% 0 0 -7%;
+    margin: -90px 0 0 140px;
 }
 
 .kawung-down {
     height: 200px;
     width: 200px;
-    z-index: 1;
-    margin: 150px 0 0 -30px;
+    margin: 220px 0 0 360px;
 }
 
 .ornamen-left {
@@ -349,8 +375,51 @@ input {
     to { background-position: 0 0px; }
 }
 
+.rotate-left {
+    -webkit-animation: rotate-left 80s linear infinite;
+}
+
+.rotate-right {
+    -webkit-animation: rotate-right 40s linear infinite;
+}
+
+@-webkit-keyframes rotate-left {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+@-webkit-keyframes rotate-right {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
 .grande {
     font-family: "GrandeeCP", serif;
     font-weight: bolder;
     font-size: xx-large;
+    color: #382736;
+}
+
+.z-index-2 {
+    z-index: 2;
+}
+
+.down {
+    position: absolute;
+    bottom: 0;
+}
+
+.rule-pict {
+    transform: translateX(70%);
+}
+
+.oke {
+    margin-left: 50%;
+    display: flex;
+}
+
+.bercak {
+    width: 30px;
+    height: 35px;
+    margin: auto 0;
 }
