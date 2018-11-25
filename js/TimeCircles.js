@@ -842,7 +842,7 @@
             Seconds: {
                 show: true,
                 text: "Seconds",
-                color: "#F99"
+                color: "#e0a82b"
             }
         }
     };

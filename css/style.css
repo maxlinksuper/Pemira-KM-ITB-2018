@@ -33,18 +33,36 @@ html, body {
 }
 
 .kawung-img-active {
-    animation: rotate 20s infinite;
+    animation: rotate 30s infinite linear;
 }
 
 .candidate-img {
     max-width: 100%;
     max-height: 100%;
+    z-index: 4;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.candidate-img:hover {
+    -webkit-filter: none; /* Safari 6.0 - 9.0 */
+    filter: none;
+    transform: scale(1.1) translateY(5%);
+}
+
+.candidate-img-active {
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 4;
+    -webkit-filter: none; /* Safari 6.0 - 9.0 */
+    filter: none;
+    transform: scale(1.1) translateY(5%);
 }
 
 .filter {
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
 }
+
 
 @keyframes rotate {
     100% {
@@ -204,29 +222,36 @@ input {
 }
 
 .candidate {
-    border: solid 2px grey;
-    height: 40%;
+    height: 45%;
     margin: 40px 30px;
-}
-
-.candidate-active {
-    background-color: grey;
-    color: white;
 }
 
 .candidate:hover {
     cursor: pointer;
-    background-color: grey;
-    color: white;
 }
 
 .kawung-kecil {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     position: absolute;
-    transform: translateX(-40px) translateY(-40px);
-    z-index: 2;
+    transform: translateX(-30px) translateY(-20px);
+    z-index: 0;
     color: black;
+}
+
+#candidate-container {
+    margin-top: 20px;
+
+}
+
+.number {
+    position: absolute;
+    transform: translateY(-90px);
+    font-family: GrandeeCP, SansSerif;
+    font-size: 55px;
+    font-weight: light;
+    height: 100px;
+    width: 100px;
 }
 
 .confirm-title {
@@ -431,4 +456,58 @@ input {
     width: 30px;
     height: 35px;
     margin: auto 0;
+}
+
+.flex {
+    display: inline-flex;
+    width: auto;
+}
+
+.title {
+    display: block;
+}
+
+.pemira {
+    font-family: "GrandeeCP", SansSerif;
+    font-size: 40px;
+}
+
+.title-desc {
+    font-family: "GrandeeCP", SansSerif;
+    font-size: 25px;
+}
+
+.heading {
+    margin: 10px 10px;
+}
+
+.vote-logo {
+    transform: translateY(17px);
+    height: 60px;
+    width: auto;
+}
+
+#ornamen-kanan {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+#ornamen-kiri {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.box {
+    border-bottom: solid 2px #191115;
+    height: 85%;
+    margin-bottom: 4px;
+    overflow: hidden;
+}
+
+.candidate-name {
+    font-family: Andada, SansSerif;
+    font-size: 20px;
+    font-weight: bold;
 }

@@ -6,74 +6,72 @@
     <script>window.$ = window.jQuery = require('jquery');</script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/TimeCircles.js"></script>
+    <script type="text/javascript" src="js/imageEffect.js"></script>
     <link rel="stylesheet" href="css/TimeCircles.css" />
     <script src="js/process.js"></script>
 </head>
 
 <body>
-<div id="wrapper">
-    <div class="logo-image">
-        <div class="inside">
-            LOGO<br> PEMIRA <br>2018
-        </div>
-    </div>
-    <div class="logo-image">
-        <div class="inside">
-            LOGO<br> KM ITB <br>2018
-        </div>
-    </div>
+<div id="wrapper" class="president">
     <div class="timer">
         <div id="CountDownTimer" data-timer="20" style="width: 100px; height: 100px;"></div>
     </div>
-    <div class="container">
-        <div class="col-7" style="max-width: none;">
-            <div class="d-block p-2 vote-title">BRAND PEMIRA</div>
-            <div class="d-block p-2 vote-choose">Kandidat Ketua Kabinet KM ITB</div>
+    <div class="container-fluid">
+        <div class="row" style="margin-top: 30px">
+            <div class="col flex justify-content-center">
+                <img src="img/logo-pemira-blank.png" class="heading vote-logo">
+                <div class="title heading">
+                    <span class="pemira">Pemira KM ITB 2018</span><br>
+                    <span class="title-desc">Kandidat Ketua Kabinet KM ITB</span>
+                </div>
+                <img src="img/logo-kongres-blank.png" class="heading vote-logo">
+            </div>
 
+        </div>
+        <div class="row">
+            <img src="img/garis.png" width="650" height="auto" style="margin: 0 auto">
         </div>
     </div>
 
     <div class="row justify-content-center" id="candidate-container">
         <script src="js/calon.js"></script>
-        <!-- <div class="col-2 candidate" id="candidate0" onclick="select(0);">
+
+        <div class="col-2 candidate text-center justify-content-center" >
             <div class="kawung-kecil">
-                <img src="img/kawung.png" class="kawung-img">
+                <img src="img/kawung-4.png" class="kawung-img" id="kawung0">
+                <div class="number">
+                    1
+                </div>
             </div>
-            <div class="inside">
-                <img src="img/man1.png" class="candidate-img filter">
+            <div class="box row justify-content-center">
+                <img src="img/man2.png" class="candidate-img filter" id="candidate0" onclick="select(0);">
             </div>
+            <span class="candidate-name">Nama bla bla bla</span>
         </div>
 
-        <div class="col-2 candidate" id="candidate1" onclick="select(1);">
+        <div class="col-2 candidate text-center justify-content-center">
             <div class="kawung-kecil">
-                <img src="img/kawung.png" class="kawung-img">
+                <img src="img/kawung-4.png" class="kawung-img" id="kawung1">
+                <div class="number">
+                    2
+                </div>
             </div>
-            <div class="inside">
-                <img src="img/man2.jpeg" class="candidate-img filter">
+            <div class="box row justify-content-center">
+                <img src="img/man1.png" class="candidate-img filter"  id="candidate1" onclick="select(1);">
             </div>
+            <span class="candidate-name">Nama bla bla bli</span>
         </div>
-
-        <div class="col-2 candidate" id="candidate2" onclick="select(2);">
-            <div class="kawung-kecil">
-                <img src="img/kawung.png" class="kawung-img">
-            </div>
-            <div class="inside">
-                <img src="img/man2.png" class="candidate-img filter">
-            </div>
-        </div>
-
-        <div class="col-2 candidate" id="candidate3" onclick="select(3);">
-            <div class="kawung-kecil">
-                <img src="img/kawung.png" class="kawung-img">
-            </div>
-            <div class="inside">
-                <img src="img/man1.png" class="candidate-img filter">
-            </div>
-        </div> -->
-        <div id="selected" style="display: none">-1</div>
         
     </div>
-    <button class="d-block p-2 rule-button" id="pilih">Pilih</button>
+    <div id="selected" style="display: none;">999</div>
+    <!--<button class="d-block p-2 rule-button" id="pilih">Pilih</button>-->
+
+    <div id="ornamen-kanan">
+        <img src="img/ornamen-4.png">
+    </div>
+    <div id="ornamen-kiri">
+        <img src="img/ornamen-3.png">
+    </div>
 </div>
 
 <script>
