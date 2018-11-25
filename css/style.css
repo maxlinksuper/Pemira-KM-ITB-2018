@@ -156,6 +156,24 @@ input {
     padding: 20px 0 0 80px;
 }
 
+#ya {
+    width: 65px;
+    color: #349ab2;
+}
+
+#ya:after {
+    background: #349ab2;
+}
+
+#belum {
+    width: 140px;
+    color: #0a3a51;
+}
+
+#belum:after {
+    background: #0a3a51;
+}
+
 .rule-button {
     height: 40px;
     width: 70px;
@@ -452,6 +470,15 @@ input {
     display: flex;
 }
 
+.yes {
+    position: absolute;
+}
+
+.no{
+    position: absolute;
+    transform: translateX(-150%);
+}
+
 .bercak {
     width: 30px;
     height: 35px;
@@ -510,4 +537,20 @@ input {
     font-family: Andada, SansSerif;
     font-size: 20px;
     font-weight: bold;
+}
+
+.confirmation-question {
+    position: absolute;
+    background-image: url("../img/yakin.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 500px;
+    height: 300px;
+    transform: translate(60%, 70%);
+
+}
+
+.confirmation-candidate {
+    position: absolute;
+    transform: translate(370%, 44%);
 }
