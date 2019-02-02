@@ -20,8 +20,8 @@ if (NIM) {
     });
 }
 
-var rule = document.getElementById('OK');
-var rule2 = document.getElementById('OK2');
+var rule = document.getElementById('YA');
+var rule2 = document.getElementById('YA2');
 
 if(rule) {
     rule.addEventListener("click", function(){
@@ -51,7 +51,7 @@ if (cancel2) {
 }
 
 var confirm = document.getElementById('accept');
-var confirm2 = document.getElementById('accept2');
+var confirm2 = document.getElementById('YAC');
 
 if(confirm) {
     confirm.addEventListener("click", function() {
