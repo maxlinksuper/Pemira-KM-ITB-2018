@@ -11,7 +11,7 @@ function select(num) {
     var lastChosenNum = document.getElementById("selected").innerHTML;
     console.log(lastChosenNum);
 
-    if (lastChosenNum != 999) {
+    if (lastChosenNum != 999 || num == lastChosenNum) {
         var lastChosen = document.getElementById("candidate"+lastChosenNum);
         var kawungLastChosen = document.getElementById("kawung"+lastChosenNum);
 
@@ -20,8 +20,24 @@ function select(num) {
         lastChosen.classList.add("filter");
 
         kawungLastChosen.classList.remove("kawung-img-active");
+
+        if (num != lastChosenNum) {
+            document.getElementById("selected").innerHTML = num;
+        }
+        else {
+            document.getElementById("selected").innerHTML = 999;
+        }
+    }
+    else {
+        document.getElementById("selected").innerHTML = num;
     }
 
-    document.getElementById("selected").innerHTML = num;
     console.log(document.getElementById("selected").innerHTML);
+
+    if (document.getElementById("selected").innerHTML != 999) {
+        document.getElementById("tombol").style.opacity = "1";
+    }
+    else {
+        document.getElementById("tombol").style.opacity = "0";
+    }
 }

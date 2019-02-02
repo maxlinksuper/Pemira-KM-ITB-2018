@@ -169,6 +169,15 @@ input {
     background: #349ab2;
 }
 
+#lanjut {
+    width: 65px;
+    color: #0a3a51;
+}
+
+#lanjut:after {
+    background: #0a3a51;
+}
+
 #belum {
     width: 140px;
     color: #0a3a51;
@@ -470,8 +479,13 @@ input {
 }
 
 .oke {
-    margin-left: 50%;
+    margin-left: calc(50% - 63px);
     display: flex;
+}
+
+#tombol {
+    transition: opacity linear 0.2s;
+    opacity: 0;
 }
 
 .yes {
