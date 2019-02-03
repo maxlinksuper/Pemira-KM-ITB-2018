@@ -35,8 +35,8 @@ if(rule2) {
     });
 }
 
-var cancel = document.getElementById('cancel');
-var cancel2 = document.getElementById('cancel2');
+var cancel = document.getElementById('BELUM1');
+var cancel2 = document.getElementById('BELUM2');
 
 if (cancel) {
     cancel.addEventListener("click", function() {
@@ -50,11 +50,12 @@ if (cancel2) {
     });
 }
 
-var confirm = document.getElementById('accept');
-var confirm2 = document.getElementById('YAC');
+var confirm = document.getElementById("YA1");
+var confirm2 = document.getElementById('YA2');
 
 if(confirm) {
     confirm.addEventListener("click", function() {
+        console.log("sent");
         ipc.send('confirm',1);
     });
 }
@@ -125,7 +126,7 @@ var thank = document.getElementById("thanks");
 if (thank) {
     document.addEventListener("keyup", function(event) {
         event.preventDefault();
-        if(event.keyCode == 13 && event.keyCode == 84) {
+        if(event.keyCode == 13) {
             ipc.send('reset');
         }
     })
@@ -147,4 +148,19 @@ if (setip) {
     })
 }
 
+var print = document.getElementById("print")
+if (print) {
+    print.addEventListener("click", function(event) {
+        var pwd1 = document.getElementById("pwd1");
+        var pwd2 = document.getElementById("pwd2");
+        var pwd3 = document.getElementById("pwd3");
+        var pwd4 = document.getElementById("pwd4");
+        var pwd5 = document.getElementById("pwd5");
+        var pwd6 = document.getElementById("pwd6");
+        var pwd7 = document.getElementById("pwd7");
+        var pwd8 = document.getElementById("pwd8");
+
+        ipc.send('printkotaksuara', pwd1, pwd2, pwd3, pwd4, pwd5, pwd6, pwd7, pwd8)
+    })
+}
 

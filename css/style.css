@@ -165,6 +165,16 @@ input {
     color: #349ab2;
 }
 
+#ya1 {
+    width: 65px;
+    color: #349ab2;
+}
+
+#ya2 {
+    width: 65px;
+    color: #349ab2;
+}
+
 #ya:after {
     background: #349ab2;
 }
@@ -179,6 +189,16 @@ input {
 }
 
 #belum {
+    width: 140px;
+    color: #0a3a51;
+}
+
+#belum1 {
+    width: 140px;
+    color: #0a3a51;
+}
+
+#belum2 {
     width: 140px;
     color: #0a3a51;
 }

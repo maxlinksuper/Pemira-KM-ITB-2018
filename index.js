@@ -99,7 +99,7 @@ ipc.on('nim-pemilih', function(event, arg) {
         nim: arg,
         cmd: 1  
     }).then(function (response) {
-        console.log(response);
+        // console.log(response);
         if (response.data.found == 0) {
             dialog.showErrorBox("Telah Memilih", "Anda sudah menggunakan kesempatan memilih anda");
         }
@@ -152,6 +152,7 @@ ipc.on('cancel', function(event, arg) {
 
 ipc.on('confirm', function(event, arg) {
     if (arg == 1) {
+        console.log("BoomSHAKALAKA");
         if (MWAactive == 1) {
             mainWindow.loadFile('congress-rule.html');
         }
@@ -201,7 +202,7 @@ ipc.on('signin', function(event,arg) {
         pwd: arg,
         cmd: 3
     }).then(function(response) {
-        console.log(response);
+        // console.log(response);
         if (response.data.found == 0) {
             dialog.showErrorBox("Password Salah", "Masukkan kembali password anda");
         }
@@ -235,4 +236,18 @@ ipc.on('set-ip', function(event,arg) {
 
 ipc.on('addcandidate', function() {
     addCalonWindow.close();
+})
+
+ipc.on('printkotaksuara', function(event, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8){
+    console.log("Password Inserted");
+    axios.post('http://' + global.sharedObj.host + 'cetak.php', {
+        pwd1 : arg1,
+        pwd2 : arg2,
+        pwd3 : arg3,
+        pwd4 : arg4,
+        pwd5 : arg5,
+        pwd6 : arg6,
+        pwd7 : arg7,
+        pwd8 : arg8
+    })
 })
