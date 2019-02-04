@@ -65,9 +65,10 @@ if (confirm2) {
     });
 }
 
+
 function select1(index_candidate) {
     var prev = document.getElementById("selected").innerHTML;
-    var choose = document.getElementById('pilih');
+    var choose = document.getElementById('OK1');
     var x = document.getElementsByClassName("candidate");
     var y = document.getElementsByClassName("kawung-img");
     var z = document.getElementsByClassName("candidate-img");
@@ -143,7 +144,7 @@ if (signin) {
 var setip = document.getElementById("setip");
 if (setip) {
     setip.addEventListener("click", function(event) {
-        var ipAddr = document.getElementById("ipaddr");
+        var ipAddr = document.getElementById("ipaddr").value;
         ipc.send('set-ip', ipAddr);
     })
 }
@@ -151,14 +152,14 @@ if (setip) {
 var print = document.getElementById("print")
 if (print) {
     print.addEventListener("click", function(event) {
-        var pwd1 = document.getElementById("pwd1");
-        var pwd2 = document.getElementById("pwd2");
-        var pwd3 = document.getElementById("pwd3");
-        var pwd4 = document.getElementById("pwd4");
-        var pwd5 = document.getElementById("pwd5");
-        var pwd6 = document.getElementById("pwd6");
-        var pwd7 = document.getElementById("pwd7");
-        var pwd8 = document.getElementById("pwd8");
+        var pwd1 = document.getElementById("pwd1").value;
+        var pwd2 = document.getElementById("pwd2").value;
+        var pwd3 = document.getElementById("pwd3").value;
+        var pwd4 = document.getElementById("pwd4").value;
+        var pwd5 = document.getElementById("pwd5").value;
+        var pwd6 = document.getElementById("pwd6").value;
+        var pwd7 = document.getElementById("pwd7").value;
+        var pwd8 = document.getElementById("pwd8").value;
 
         ipc.send('printkotaksuara', pwd1, pwd2, pwd3, pwd4, pwd5, pwd6, pwd7, pwd8)
     })

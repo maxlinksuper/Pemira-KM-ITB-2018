@@ -175,7 +175,16 @@ input {
     color: #349ab2;
 }
 
+#ok1 {
+    width: 65px;
+    color: #349ab2;
+}
+
 #ya:after {
+    background: #349ab2;
+}
+
+#ok1:after {
     background: #349ab2;
 }
 

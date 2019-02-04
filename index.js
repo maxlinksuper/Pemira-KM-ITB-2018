@@ -90,8 +90,14 @@ app.on('ready', function() {
             height: 800
         });
         addCalonWindow.loadFile('add-candidate.html');
-    })
-
+    });
+    globalShortcut.register('Ctrl+Alt+K', function() {
+        ipWindow = new BrowserWindow({
+            width: 1000,
+            height: 800
+        });
+        ipWindow.loadFile('open-data.html')
+    });
 });
 
 ipc.on('nim-pemilih', function(event, arg) {
@@ -240,7 +246,15 @@ ipc.on('addcandidate', function() {
 
 ipc.on('printkotaksuara', function(event, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8){
     console.log("Password Inserted");
-    axios.post('http://' + global.sharedObj.host + 'cetak.php', {
+    console.log(arg1);
+    console.log(arg2);
+    console.log(arg3);
+    console.log(arg4);
+    console.log(arg5);
+    console.log(arg6);
+    console.log(arg7);
+    console.log(arg8);
+    axios.post('http://' + global.sharedObj.host + '/cetak.php', {
         pwd1 : arg1,
         pwd2 : arg2,
         pwd3 : arg3,
@@ -249,5 +263,7 @@ ipc.on('printkotaksuara', function(event, arg1, arg2, arg3, arg4, arg5, arg6, ar
         pwd6 : arg6,
         pwd7 : arg7,
         pwd8 : arg8
-    })
+    }).then(function(response) {
+        console.log(response);
+    });
 })
