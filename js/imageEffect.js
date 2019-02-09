@@ -35,9 +35,11 @@ function select(num) {
     console.log(document.getElementById("selected").innerHTML);
 
     if (document.getElementById("selected").innerHTML != 999) {
-        document.getElementById("tombol").style.opacity = "1";
+        document.getElementById("tombol").style.display = "flex";
+        setTimeout(function(){ document.getElementById("tombol").style.opacity = "1"; }, 100);
     }
     else {
         document.getElementById("tombol").style.opacity = "0";
+        setTimeout(function(){ document.getElementById("tombol").style.display = "none"; }, 300);
     }
 }
