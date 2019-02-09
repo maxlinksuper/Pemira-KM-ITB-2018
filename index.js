@@ -148,7 +148,7 @@ app.on('ready', function() {
             width: 1000,
             height: 800
         })
-        chanceWindow.loadFile('nim-reset')
+        chanceWindow.loadFile('nim-reset.html')
     });
 });
 
