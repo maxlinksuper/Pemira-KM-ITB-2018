@@ -25,17 +25,42 @@ app.on('ready', function() {
     mainWindow.loadFile('index.html');
     mainWindow.setKiosk(true);
     // mainWindow.setMenu(null);
+
+    // Shortcut to reset database
     globalShortcut.register('Ctrl+Alt+R', function() {
-        axios.post('http://' + global.sharedObj.host + '/test.php', {
-                nim: "10010100",
-                cmd: 2  
-            }).then(function () {})
-        dialog.showMessageBox({
-            type: 'info',
-            message: 'Database pemilih direset'
+        secondWindow = new BrowserWindow({
+            width: 1000,
+            height: 800
+        })
+        // secondWindow.setMenu(null);
+        secondWindow.loadFile('sign-in.html');
+        ipc.on('signin', function(event,arg) {
+            axios.post('http://' + global.sharedObj.host + '/test.php', {
+                pwd: arg,
+                cmd: 3
+            }).then(function(response) {
+                // console.log(response);
+                if (response.data.found == 0) {
+                    dialog.showErrorBox("Password Salah", "Masukkan kembali password anda");
+                }
+                else {
+                    axios.post('http://' + global.sharedObj.host + '/test.php', {
+                        nim: "10010100",
+                        cmd: 2  
+                    }).then(function () {
+                        dialog.showMessageBox({
+                            type: 'info',
+                            message: 'Database pemilih direset'
+                        });
+                    });
+                    secondWindow.close();
+                }
+            });
         });
     });
-    globalShortcut.register('Ctrl+Alt+M', function() {
+
+    // Shortcut to activate / deactivate congress voting
+    globalShortcut.register('Ctrl+Alt+N', function() {
         if (MWAactive == 1) {
             MWAactive = 0;
             dialog.showMessageBox({
@@ -51,21 +76,8 @@ app.on('ready', function() {
             });
         }
     });
-    // globalShortcut.register('Ctrl+Alt+C', function() {
-    //     axios.get('http://' + global.sharedObj.host + '/calon.php', {
-    //         params: {
-    //             type: 0
-    //         }
-    //     }). then(function (response) {
-    //         // console.log(response);
-    //         var c = response.data;
-    //     });
-    // });
-    globalShortcut.register('Ctrl+Alt+D', function() {
-        axios.post('http://' + global.sharedObj.host + '/test.php', {
-            cmd:3
-        }).then(function () {})
-    });
+
+    // Shortcut to show sign in window
     globalShortcut.register('Ctrl+Alt+P', function() {
         secondWindow = new BrowserWindow({
             width: 1000,
@@ -77,6 +89,8 @@ app.on('ready', function() {
     mainWindow.on('closed', function(){
         app.quit();
     });
+
+    // Shortcut to show ip setting window
     globalShortcut.register('Ctrl+Alt+I', function() {
         ipWindow = new BrowserWindow({
             width: 800,
@@ -84,6 +98,8 @@ app.on('ready', function() {
         })
         ipWindow.loadFile('set-ip.html')
     });
+
+    // Shortcut to add new candidate
     globalShortcut.register('Ctrl+Alt+C', function() {
         addCalonWindow = new BrowserWindow({
             width: 1000,
@@ -91,6 +107,8 @@ app.on('ready', function() {
         });
         addCalonWindow.loadFile('add-candidate.html');
     });
+
+    // Shortcut to print data
     globalShortcut.register('Ctrl+Alt+K', function() {
         ipWindow = new BrowserWindow({
             width: 1000,
@@ -120,7 +138,7 @@ ipc.on('nim-pemilih', function(event, arg) {
                 mainWindow.loadFile('president-rule.html');
             }
         }
-    })
+    });
 });
 
 ipc.on('readrule', function(event, arg) {
@@ -134,7 +152,12 @@ ipc.on('readrule', function(event, arg) {
 
 ipc.on('choose', function(event, arg1) {
     if (arg1 == 1) {
-        mainWindow.loadFile('president-confirmation.html');
+        if (global.sharedObj.pilKM == 0) {
+            mainWindow.loadFile('president-confirmation.html');
+        }
+        else {
+            mainWindow.loadFile('president-confirmation-abstain.html');
+        }
     }
     else {
         mainWindow.loadFile('congress-confirmation.html');
@@ -163,8 +186,9 @@ ipc.on('confirm', function(event, arg) {
             mainWindow.loadFile('congress-rule.html');
         }
         else {
+            console.log(global.sharedObj.pilihanMWA);
             axios.post('http://' + global.sharedObj.host + '/test.php', {
-                pilKM: global.sharedObj.pilihanKM+1,
+                pilKM: global.sharedObj.pilihanKM,
                 pilMWA: global.sharedObj.pilihanMWA+1,
                 kode: global.sharedObj.nimPemilih.substring(0,3),
                 cmd:4
@@ -213,6 +237,10 @@ ipc.on('signin', function(event,arg) {
             dialog.showErrorBox("Password Salah", "Masukkan kembali password anda");
         }
         else {
+            dialog.showMessageBox({
+                type : 'info',
+                message: 'Signin berhasil'
+            });
             secondWindow.close();
         }
     });

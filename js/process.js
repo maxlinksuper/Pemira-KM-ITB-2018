@@ -21,7 +21,7 @@ if (NIM) {
 }
 
 var rule = document.getElementById('YA');
-var rule2 = document.getElementById('YA2');
+var rule2 = document.getElementById('YA3');
 
 if(rule) {
     rule.addEventListener("click", function(){
@@ -51,7 +51,7 @@ if (cancel2) {
 }
 
 var confirm = document.getElementById("YA1");
-var confirm2 = document.getElementById('YA2');
+var confirm2 = document.getElementById('YA4');
 
 if(confirm) {
     confirm.addEventListener("click", function() {
@@ -59,16 +59,17 @@ if(confirm) {
         ipc.send('confirm',1);
     });
 }
-if (confirm2) {
-    confirm2.addEventListener("click", function() {
-        ipc.send('confirm', 2);
-    });
-}
+// if (confirm2) {
+//     confirm2.addEventListener("click", function() {
+//         ipc.send('confirm', 2);
+//     });
+// }
 
 
 function select1(index_candidate) {
     var prev = document.getElementById("selected").innerHTML;
-    var choose = document.getElementById('OK1');
+    console.log(prev);
+    console.log(choose);
     var x = document.getElementsByClassName("candidate");
     var y = document.getElementsByClassName("kawung-img");
     var z = document.getElementsByClassName("candidate-img");
@@ -86,13 +87,15 @@ function select1(index_candidate) {
         y[prev].classList.remove("kawung-img-active");
         z[prev].classList.add("filter");
     }
-    if(choose) {
-        choose.addEventListener("click", function(){
-            remote.getGlobal('sharedObj').pilihanKM = document.getElementById("selected").innerHTML;
-            console.log(remote.getGlobal('sharedObj').pilihanKM);
-            ipc.send('choose', 1);
-        });
-    }
+}
+
+var choose = document.getElementById("YA2");
+if(choose) {
+    choose.addEventListener("click", function(){
+        remote.getGlobal('sharedObj').pilihanKM = document.getElementById("selected").innerHTML;
+        console.log(remote.getGlobal('sharedObj').pilihanKM);
+        ipc.send('choose', 1);
+    });
 }
 
 function select2(index_candidate) {

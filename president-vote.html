@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="box row justify-content-center">
-                <img src="img/man2.png" class="candidate-img filter" id="candidate0" onclick="select1(0);">
+                <img src="img/man2.png" class="candidate-img filter" id="candidate0" onclick="select(0);">
             </div>
             <span class="candidate-name">Nama bla bla bla</span>
         </div>
@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="box row justify-content-center">
-                <img src="img/man-no-face.png" class="candidate-img filter"  id="candidate1" onclick="select1(1);">
+                <img src="img/man-no-face.png" class="candidate-img filter"  id="candidate1" onclick="select(1);">
             </div>
             <span class="candidate-name">Nama bla bla bli</span>
         </div>
@@ -67,7 +67,7 @@
 
     <div class="oke yes" id="tombol">
         <img src="img/bercak-ya-kiri.png" class="bercak ya" id="bercak-kiri">
-        <button class="d-block rule-button grande" id="YA">OK</button>
+        <button class="d-block rule-button grande" id="YA2">OK</button>
         <img src="img/bercak-ya-kanan.png" class="bercak" id="bercak-kanan">
     </div>
     <!--<button class="d-block p-2 rule-button" id="pilih">Pilih</button>-->
@@ -84,9 +84,7 @@
     $("#CountDownTimer").TimeCircles({ time: { Days: { show: false }, Hours: { show: false }, Minutes: { show: false } }});
     $("#CountDownTimer").TimeCircles({count_past_zero: false});
     $("#CountDownTimer").TimeCircles({total_duration: 20});
-
     $("#CountDownTimer").TimeCircles({count_past_zero: false}).addListener(countdownComplete);
-
     function countdownComplete(unit, value, total){
         if(total<=0){
             $(this).fadeOut('slow').replaceWith("<h2>Time's Up!</h2>");
