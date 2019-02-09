@@ -68,8 +68,6 @@ if(confirm) {
 
 function select1(index_candidate) {
     var prev = document.getElementById("selected").innerHTML;
-    console.log(prev);
-    console.log(choose);
     var x = document.getElementsByClassName("candidate");
     var y = document.getElementsByClassName("kawung-img");
     var z = document.getElementsByClassName("candidate-img");
@@ -87,6 +85,7 @@ function select1(index_candidate) {
         y[prev].classList.remove("kawung-img-active");
         z[prev].classList.add("filter");
     }
+
 }
 
 var choose = document.getElementById("YA2");
@@ -141,6 +140,14 @@ if (signin) {
     signin.addEventListener("click", function(event) {
         var tpsP = document.getElementById("uPwd").value;
         ipc.send('signin', tpsP);
+    })
+}
+
+var resetnim = document.getElementById("resetnim");
+if (resetnim) {
+    resetnim.addEventListener("click", function(event) {
+        var tpsP = document.getElementById("uPwd").value;
+        ipc.send('resetnim', tpsP);
     })
 }
 

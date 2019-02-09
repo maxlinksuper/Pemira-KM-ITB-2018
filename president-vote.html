@@ -89,7 +89,7 @@
         if(total<=0){
             $(this).fadeOut('slow').replaceWith("<h2>Time's Up!</h2>");
             remote.getGlobal('sharedObj').pilihanKM = document.getElementById("selected").innerHTML;
-            ipc.send('choose',1);
+            // ipc.send('choose',1);
         }
     }
 </script>

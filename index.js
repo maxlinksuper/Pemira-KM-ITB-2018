@@ -6,6 +6,7 @@ const {dialog} = require ('electron');
 const axios = require ('axios');
 
 var count = 0;
+var KMactive = 1;
 var MWAactive = 0;
 global.sharedObj = {pilihanKM: -1, pilihanMWA: -1, host: "localhost", nimPemilih: ""};
 
@@ -15,6 +16,7 @@ let mainWindow;
 let secondWindow;
 let ipWindow;
 let addCalonWindow;
+let chanceWindow;
 
 app.on('ready', function() {
     // create new Window
@@ -77,6 +79,26 @@ app.on('ready', function() {
         }
     });
 
+    // Shortcut to activate / deactivate congress voting
+    globalShortcut.register('Ctrl+Alt+3', function() {
+        if (KMactive == 1) {
+            KMactive = 0;
+            MWAactive = 1;
+            dialog.showMessageBox({
+                type : 'info',
+                message: 'Pemilihan KM dinonaktifkan & Pemilihan MWA WM diaktifkan'
+            });
+        }
+        else {
+            KMactive = 1;
+            MWAactive = 0;
+            dialog.showMessageBox({
+                type : 'info',
+                message: 'Pemilihan KM diaktifkan & Pemilihan MWA WM dinonaktifkan'
+            });
+        }
+    });
+
     // Shortcut to show sign in window
     globalShortcut.register('Ctrl+Alt+P', function() {
         secondWindow = new BrowserWindow({
@@ -116,6 +138,18 @@ app.on('ready', function() {
         });
         ipWindow.loadFile('open-data.html')
     });
+
+    globalShortcut.register('Ctrl+Alt+1', function() {
+        mainWindow.minimize();
+    });
+
+    globalShortcut.register('Ctrl+Alt+2', function() {
+        chanceWindow = new BrowserWindow({
+            width: 1000,
+            height: 800
+        })
+        chanceWindow.loadFile('nim-reset')
+    });
 });
 
 ipc.on('nim-pemilih', function(event, arg) {
@@ -135,7 +169,12 @@ ipc.on('nim-pemilih', function(event, arg) {
                 else { dialog.showErrorBox("Anda tidak bisa memilih", "Maaf, anda tidak bisa memilih"); }
             }
             else {
-                mainWindow.loadFile('president-rule.html');
+                if (KMactive == 1) {
+                    mainWindow.loadFile('president-rule.html');
+                }
+                else {
+                    mainWindow.loadFile('congress-rule.html');
+                }
             }
         }
     });
@@ -151,8 +190,10 @@ ipc.on('readrule', function(event, arg) {
 });
 
 ipc.on('choose', function(event, arg1) {
+    console.log(global.sharedObj);
+    console.log(global.sharedObj.pilihanKM);
     if (arg1 == 1) {
-        if (global.sharedObj.pilKM == 0) {
+        if (global.sharedObj.pilihanKM == 0) {
             mainWindow.loadFile('president-confirmation.html');
         }
         else {
@@ -181,14 +222,13 @@ ipc.on('cancel', function(event, arg) {
 
 ipc.on('confirm', function(event, arg) {
     if (arg == 1) {
-        console.log("BoomSHAKALAKA");
         if (MWAactive == 1) {
             mainWindow.loadFile('congress-rule.html');
         }
         else {
-            console.log(global.sharedObj.pilihanMWA);
+            console.log(global.sharedObj.pilihanKM);
             axios.post('http://' + global.sharedObj.host + '/test.php', {
-                pilKM: global.sharedObj.pilihanKM,
+                pilKM: global.sharedObj.pilihanKM+2,
                 pilMWA: global.sharedObj.pilihanMWA+1,
                 kode: global.sharedObj.nimPemilih.substring(0,3),
                 cmd:4
@@ -243,6 +283,20 @@ ipc.on('signin', function(event,arg) {
             });
             secondWindow.close();
         }
+    });
+})
+
+ipc.on('resetnim', function(event,arg) {
+    axios.post('http://' + global.sharedObj.host + '/test.php', {
+        pwd: arg,
+        cmd: 6
+    }).then(function() {
+        // console.log(response);
+        dialog.showMessageBox({
+            type : 'info',
+            message: 'NIM bisa melakukan pemilihan sekali lagi'
+        });
+        chanceWindow.close();
     });
 })
 
