@@ -14,16 +14,17 @@
 <body>
 <div id="wrapper" class="president">
     <div class="timer">
-        <div id="CountDownTimer" data-timer="20" style="width: 100px; height: 100px;"></div>
+        <div id="CountDownTimer" data-timer="17" style="width: 100px; height: 100px;"></div>
     </div>
     <div class="container-fluid">
         <div class="row" style="margin-top: 30px">
-            <div class="col flex justify-content-center">
+            <div class="col flex justify-content-center" style="margin-bottom: 20px;">
                 <img src="img/logo-pemira-blank.png" class="heading vote-logo">
-                <div class="title heading">
-                    <span class="pemira">Pemira KM ITB 2018</span><br>
-                    <span class="title-desc">Kandidat Ketua Kabinet KM ITB</span>
-                </div>
+                <img src="img/presiden-vote-title.png" width="480" height="60" style="margin: 10px 10px; transform: translateY(14px)">
+                <!--<div class="title heading">-->
+                    <!--<span class="pemira">Pemira KM ITB 2018</span><br>-->
+                    <!--<span class="title-desc">Kandidat Ketua Kabinet KM ITB</span>-->
+                <!--</div>-->
                 <img src="img/logo-kongres-blank.png" class="heading vote-logo">
             </div>
 
@@ -83,7 +84,7 @@
 <script>
     $("#CountDownTimer").TimeCircles({ time: { Days: { show: false }, Hours: { show: false }, Minutes: { show: false } }});
     $("#CountDownTimer").TimeCircles({count_past_zero: false});
-    $("#CountDownTimer").TimeCircles({total_duration: 20});
+    $("#CountDownTimer").TimeCircles({total_duration:17});
     $("#CountDownTimer").TimeCircles({count_past_zero: false}).addListener(countdownComplete);
     function countdownComplete(unit, value, total){
         if(total<=0){

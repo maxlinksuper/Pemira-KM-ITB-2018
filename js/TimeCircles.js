@@ -61,7 +61,7 @@
     
     // Used to disable some features on IE8
     var limited_mode = false;
-    var tick_duration = 200; // in ms
+    var tick_duration = 170; // in ms
     
     var debug = (location.hash === "#debug");
     function debug_log(msg) {
