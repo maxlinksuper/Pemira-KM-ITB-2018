@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="box row justify-content-center">
-                <img src="img/foto%20calon%20k3m/Royyan%20Baru%20crop.png" class="candidate-img filter" id="candidate0" onclick="select(0);">
+                <img src="img/mans1.png" class="candidate-img filter" id="candidate0" onclick="select(0);">
             </div>
             <span class="candidate-name">Royyan Abdullah D.</span>
         </div>
@@ -59,7 +59,7 @@
             <div class="box row justify-content-center">
                 <img src="img/man-no-face.png" class="candidate-img filter"  id="candidate1" onclick="select(1);">
             </div>
-            <span class="candidate-name"></span>
+            <span class="candidate-name">Kotak Kosong</span>
         </div>
         
     </div>
@@ -89,7 +89,7 @@
         if(total<=0){
             $(this).fadeOut('slow').replaceWith("<h2>Time's Up!</h2>");
             remote.getGlobal('sharedObj').pilihanKM = document.getElementById("selected").innerHTML;
-            ipc.send('choose',1);
+            // ipc.send('choose',1);
         }
     }
 </script>

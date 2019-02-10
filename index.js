@@ -190,8 +190,8 @@ ipc.on('readrule', function(event, arg) {
 });
 
 ipc.on('choose', function(event, arg1) {
-    console.log(global.sharedObj);
-    console.log(global.sharedObj.pilihanKM);
+    // console.log(global.sharedObj);
+    // console.log(global.sharedObj.pilihanKM);
     if (arg1 == 1) {
         if (global.sharedObj.pilihanKM == 0) {
             mainWindow.loadFile('president-confirmation.html');
@@ -228,7 +228,7 @@ ipc.on('confirm', function(event, arg) {
         else {
             console.log(global.sharedObj.pilihanKM);
             axios.post('http://' + global.sharedObj.host + '/test.php', {
-                pilKM: global.sharedObj.pilihanKM+2,
+                pilKM: parseInt(global.sharedObj.pilihanKM)+1,
                 pilMWA: global.sharedObj.pilihanMWA+1,
                 kode: global.sharedObj.nimPemilih.substring(0,3),
                 cmd:4
