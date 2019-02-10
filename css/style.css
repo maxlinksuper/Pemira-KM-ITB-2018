@@ -600,6 +600,8 @@ input {
 
 .heading {
     margin: 10px 10px;
+    white-space: nowrap;
+    font-size: 0;
 }
 
 .vote-logo {
