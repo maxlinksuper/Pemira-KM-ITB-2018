@@ -59,11 +59,11 @@ if(confirm) {
         ipc.send('confirm',1);
     });
 }
-// if (confirm2) {
-//     confirm2.addEventListener("click", function() {
-//         ipc.send('confirm', 2);
-//     });
-// }
+if (confirm2) {
+    confirm2.addEventListener("click", function() {
+        ipc.send('confirm', 2);
+    });
+}
 
 
 function select1(index_candidate) {
