@@ -11,7 +11,7 @@ function select(num) {
     var lastChosenNum = document.getElementById("selected").innerHTML;
     console.log(lastChosenNum);
 
-    if (lastChosenNum != 999 || num == lastChosenNum) {
+    if (lastChosenNum != 8 || num == lastChosenNum) {
         var lastChosen = document.getElementById("candidate"+lastChosenNum);
         var kawungLastChosen = document.getElementById("kawung"+lastChosenNum);
 
@@ -25,7 +25,7 @@ function select(num) {
             document.getElementById("selected").innerHTML = num;
         }
         else {
-            document.getElementById("selected").innerHTML = 999;
+            document.getElementById("selected").innerHTML = 8;
         }
     }
     else {
@@ -34,7 +34,7 @@ function select(num) {
 
     console.log(document.getElementById("selected").innerHTML);
 
-    if (document.getElementById("selected").innerHTML != 999) {
+    if (document.getElementById("selected").innerHTML != 8) {
         document.getElementById("tombol").style.display = "flex";
         setTimeout(function(){ document.getElementById("tombol").style.opacity = "1"; }, 100);
     }
