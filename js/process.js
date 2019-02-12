@@ -168,10 +168,16 @@ if (print) {
         var pwd4 = document.getElementById("pwd4").value;
         var pwd5 = document.getElementById("pwd5").value;
         var pwd6 = document.getElementById("pwd6").value;
-        var pwd7 = document.getElementById("pwd7").value;
-        var pwd8 = document.getElementById("pwd8").value;
 
-        ipc.send('printkotaksuara', pwd1, pwd2, pwd3, pwd4, pwd5, pwd6, pwd7, pwd8)
+        ipc.send('printkotaksuara', pwd1, pwd2, pwd3, pwd4, pwd5, pwd6);
+    })
+}
+
+var insertDatabasePassword = document.getElementById("dpassword");
+if (insertDatabasePassword) {
+    insertDatabasePassword.addEventListener("click", function(event) {
+        var pwd = document.getElementById("uPwd").value;
+        ipc.send('addPassword', pwd);
     })
 }
 

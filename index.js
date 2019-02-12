@@ -150,6 +150,14 @@ app.on('ready', function() {
         })
         chanceWindow.loadFile('nim-reset.html')
     });
+
+    globalShortcut.register('Ctrl+Alt+4', function() {
+        chanceWindow = new BrowserWindow({
+            width: 1000,
+            height: 800
+        })
+        chanceWindow.loadFile('insert-password.html')
+    });
 });
 
 ipc.on('nim-pemilih', function(event, arg) {
@@ -288,7 +296,7 @@ ipc.on('signin', function(event,arg) {
 
 ipc.on('resetnim', function(event,arg) {
     axios.post('http://' + global.sharedObj.host + '/test.php', {
-        pwd: arg,
+        nim: arg,
         cmd: 6
     }).then(function() {
         // console.log(response);
@@ -334,8 +342,6 @@ ipc.on('printkotaksuara', function(event, arg1, arg2, arg3, arg4, arg5, arg6, ar
     console.log(arg4);
     console.log(arg5);
     console.log(arg6);
-    console.log(arg7);
-    console.log(arg8);
     axios.post('http://' + global.sharedObj.host + '/cetak.php', {
         pwd1 : arg1,
         pwd2 : arg2,
@@ -343,9 +349,17 @@ ipc.on('printkotaksuara', function(event, arg1, arg2, arg3, arg4, arg5, arg6, ar
         pwd4 : arg4,
         pwd5 : arg5,
         pwd6 : arg6,
-        pwd7 : arg7,
-        pwd8 : arg8
     }).then(function(response) {
         console.log(response);
     });
-})
+});
+
+ipc.on('addPassword', function(event, arg) {
+    console.log("Password Added");
+    axios.post('http://' + global.sharedObj.host + '/test.php', {
+        uPwd : arg,
+        cmd : 7
+    }).then(function(response) {
+        console.log(response);
+    });
+});
