@@ -51,7 +51,7 @@ if (calon2) {
                 </div>
             </div>
             <div class="box row justify-content-center">
-                <img src="img/${element.img}" class="candidate-img filter" id="candidate${j}" onclick="select2(${j});">
+                <img src="img/${element.img}" class="candidate-img filter" id="candidate${j}" onclick="selects(${j});">
             </div>
             <span class="candidate-name">${element.nama}</span>
             </div>
