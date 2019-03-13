@@ -5,18 +5,17 @@ var calon2 = document.getElementById("candidate-container2");
 if(calon) {
     axios.get('http://' + remote.getGlobal('sharedObj').host + '/calon.php', {
         params: {
-            type: 0
+            type: 1
         }
     }). then(function (response) {
         var c = response.data;
         const container = document.getElementById("candidate-container");
         var i = 0;
-        var img = "";
         c.forEach(element => {
             container.innerHTML += `
             <div class="col-2 candidate" id="candidate${i}" onclick="select1(${i});">
                 <div class="kawung-kecil">
-                    <img src="img/kawung.png" class="kawung-img">
+                    <img src="${element.img}" class="kawung-img">
                 </div>
                 <div class="inside">
                     <img src="img/man1.png" class="candidate-img filter">

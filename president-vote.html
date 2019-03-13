@@ -35,9 +35,8 @@
     </div>
 
     <div class="row justify-content-center" id="candidate-container">
-        <!-- <script src="js/calon.js"></script> -->
 
-        <div class="col-2 candidate text-center justify-content-center" >
+        <!-- <div class="col-2 candidate text-center justify-content-center" >
             <div class="kawung-kecil">
                 <img src="img/kawung-4.png" class="kawung-img" id="kawung0">
                 <div class="number">
@@ -61,7 +60,7 @@
                 <img src="img/man-no-face.png" class="candidate-img filter"  id="candidate1" onclick="select(1);">
             </div>
             <span class="candidate-name">Kotak Kosong</span>
-        </div>
+        </div> -->
         
     </div>
     <div id="selected" style="display: none;">8</div>
@@ -90,9 +89,10 @@
         if(total<=0){
             $(this).fadeOut('slow').replaceWith("<h2>Time's Up!</h2>");
             remote.getGlobal('sharedObj').pilihanKM = document.getElementById("selected").innerHTML;
-            ipc.send('choose',1);
+            // ipc.send('choose',1);
         }
     }
 </script>
 <script src="js/process.js"></script>
+<script src="js/calon.js"></script>
 </body>
