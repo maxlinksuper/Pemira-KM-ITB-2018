@@ -1,134 +1,65 @@
 <!DOCTYPE html>
-<!-- saved from url=(0052)https://getbootstrap.com/docs/4.1/examples/checkout/ -->
 <html lang="en" class="gr__getbootstrap_com"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Hagai Raja Sinulingga">
 
-    <title>Add Candidate | PEMIRA ITB 2018</title>
+    <title>Open Data | PEMIRA ITB 2018</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="./js/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="./js/bootstrap.min.js.download"></script>
 
     <!-- Custom styles for this template -->
-  <link href="./css/upload-photo.css" rel="stylesheet">
+    <link href="./css/sign-in.css" rel="stylesheet">
     <link href="./css/form-validation.css" rel="stylesheet">
-  </head>
+</head>
 
-  <body class="bg-light" data-gr-c-s-loaded="true">
-  <script src="js/process.js"></script>
-    <div class="container">
-      <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="./img/LOGO PEMIRA4.png" alt="" width="100" height="100">
-        <h2>Tambah Kandidat</h2>
-        <p class="lead">Silahkan isi form singkat ini untuk menambahkan calon kandidat baru dalam pemira tahun ini<br>Pastikan mendaftarkan sebagai Ketua Kabinet KM ITB atau Ketua MWA WM ITB.</p>
+<body class="text-center" data-gr-c-s-loaded="true">
+<div class="card card-container" id="open-card">
+    <img id="profile-img" class="profile-img-card" src="./img/LOGO%20PEMIRA4.png" />
+    <p id="profile-name" class="profile-name-card">Add Candidate Form</p>
+    <form novalidate="" id="formID" action="#" method="post">
+        <span id="reauth-email" class="reauth-email"></span>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+              <input type="text" id="name" name="name" class="form-control" placeholder="Candidate Name" required>
+              <div class="invalid-feedback">
+                  Valid text is required.
+              </div>
+          </div>
+          <div class="col-md-6 mb-3">
+              <input type="text" id="nim" name="nim" class="form-control" placeholder="Candidate NIM" required>
+              <div class="invalid-feedback">
+                  Valid text is required.
+              </div>
+          </div>
       </div>
 
       <div class="row">
-        <div class="col-md-12 order-md-1 justify-content-center">
-          <h4 class="mb-3">Info</h4>
-          <form class="needs-validation" novalidate="" action="mastah.php" method="post">
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="name">Nama Lengkap</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="" value="" required="">
-                <div class="invalid-feedback">
-                  Valid name is required.
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="nim">NIM</label>
-                <input type="text" class="form-control" id="nim" name="nim" placeholder="" value="" required="">
-                <div class="invalid-feedback">
-                  Valid NIM is required.
-                </div>
-              </div>
-
-              <input type="hidden" class="form-control" name="role" id="role">
+        <div class="col-md-6 mb-3">
+            <input type="text" id="from" name="from" class="form-control" placeholder="Candidate Type" required>
+            <div class="invalid-feedback">
+                Valid text is required.
             </div>
-
-            <h4 class="mb-3">Kandidat</h4>
-
-            <div class="d-block my-3">
-              <div class="custom-control custom-radio">
-                <input id="president" name="candidate" type="radio" class="custom-control-input" onclick="changeVal(1)" required="">
-                <label class="custom-control-label" for="president">Ketua KM ITB</label>
-              </div>
-              <div class="custom-control custom-radio">
-                <input id="congress" name="candidate" type="radio" class="custom-control-input" onclick="changeVal(0)" required="">
-                <label class="custom-control-label" for="congress">Ketua MWA WM ITB</label>
-              </div>
-            </div>
-
-            <h4 class="mb-3">Foto Diri</h4>
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label>Upload Foto</label>
-                <div class="input-group">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default btn-file">
-                            Browse&hellip; <input type="file" id="imgInp" required="">
-                        </button>
-                    </span>
-                  <input type="text" class="form-control" id="imgName" readonly="" required="">
-                  <input type="hidden" class="form-control" id="image" name="image" readonly="" required="">
-                </div>
-
-                <img id='img-upload'/>
-                <small class="text-muted">Berikan foto terbaik anda.</small>
-                <div class="invalid-feedback">
-                  Valid photo is required.
-                </div>
-              </div>
-            </div>
-
-            <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit" id="formID">Upload</button>
-          </form>
         </div>
-      </div>
-
-      <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-2"><strong>Keberanian anda adalah sebuah langkah awal perubahan ITB.</strong></p>
-        <p class="mb-1">© 2018 Pemira ITB</p>
-      </footer>
+        <div class="col-md-6 mb-3">
+            <input type="text" id="img" name="img" class="form-control" placeholder="Candidate Image" required>
+            <div class="invalid-feedback">
+                Valid text is required.
+            </div>
+        </div>
     </div>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script>window.$ = window.jQuery = require('jquery');</script>
-    <script src="./js/jquery-3.3.1.slim.min.js.download" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="./js/popper.min.js.download"></script>
-    <script src="./js/bootstrap.min.js.download"></script>
-    <script src="./js/holder.min.js.download"></script>
-    <script src="./js/photo.js"></script>
-    <script>
-      // Example starter JavaScript for disabling form submissions if there are invalid fields
-      (function() {
-        'use strict';
-
-        window.addEventListener('load', function() {
-          // Fetch all the forms we want to apply custom Bootstrap validation styles to
-          var forms = document.getElementsByClassName('needs-validation');
-
-          // Loop over them and prevent submission
-          var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-              if (form.checkValidity() === false) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-              form.classList.add('was-validated');
-              ipc.send('addcandidate');
-              console.log("Terkirim");
-            }, false);
-          });
-        }, false);
-      })();
-    </script>
-  
-
-</body><span class="gr__tooltip"><span class="gr__tooltip-content"></span><i class="gr__tooltip-logo"></i><span class="gr__triangle"></span></span></html>
+        <button class="btn btn-lg btn-primary btn-block btn-signin" name="submit" type="submit" id="addcandidate">Add Candidate</button>
+    </form><!-- /form -->
+</div><!-- /card-container -->
+<script src="./js/jquery-3.3.1.slim.min.js.download"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="./js/popper.min.js.download"></script>
+<script src="./js/bootstrap.min.js.download"></script>
+<script src="./js/holder.min.js.download"></script>
+<script src="js/process.js"></script>
+</body></html>

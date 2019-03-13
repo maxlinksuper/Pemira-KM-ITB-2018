@@ -324,11 +324,21 @@ ipc.on('set-ip', function(event,arg) {
     console.log(global.sharedObj.host);
 })
 
-ipc.on('addcandidate', function() {
+ipc.on('addCandidate', function(event, arg1, arg2, arg3, arg4) {
+    console.log("masuk");
+    axios.post('http://' + global.sharedObj.host + '/test.php', {
+        nama : arg1,
+        nim : arg2,
+        dari : arg3,
+        img : arg4,
+        cmd : 5
+    }).then(function(response) {
+        console.log(response);
+    });
     addCalonWindow.close();
 })
 
-ipc.on('printkotaksuara', function(event, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8){
+ipc.on('printkotaksuara', function(event, arg1, arg2, arg3, arg4, arg5, arg6){
     console.log("Password Inserted");
     console.log(arg1);
     console.log(arg2);
@@ -342,7 +352,7 @@ ipc.on('printkotaksuara', function(event, arg1, arg2, arg3, arg4, arg5, arg6, ar
         pwd3 : arg3,
         pwd4 : arg4,
         pwd5 : arg5,
-        pwd6 : arg6,
+        pwd6 : arg6
     }).then(function(response) {
         console.log(response);
     });

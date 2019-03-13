@@ -186,3 +186,19 @@ if (insertDatabasePassword) {
     })
 }
 
+var addCandidate = document.getElementById("addcandidate");
+if (addCandidate) {
+    addCandidate.addEventListener("click", function(event) {
+       var name = document.getElementById("name").value;
+       var nim = document.getElementById("nim").value;
+       var from = document.getElementById("from").value;
+       var img = document.getElementById("img").value; 
+       ipc.send('addCandidate', name, nim, from, img);
+       console.log("Sent from form");
+       console.log(name);
+       console.log(nim);
+       console.log(from);
+       console.log(img);
+    });
+}
+
