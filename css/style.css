@@ -214,6 +214,10 @@ input {
     background: #349ab2;
 }
 
+#ya5:after {
+    background: #349ab2;
+}
+
 #ok1:after {
     background: #349ab2;
 }
@@ -281,6 +285,18 @@ input {
 }
 
 #BELUM1:after {
+    background: #0a3a51;
+}
+
+.YA2:after {
+    background: #349ab2;
+}
+
+#YA2:after {
+    background: #349ab2;
+}
+
+#BELUM2:after {
     background: #0a3a51;
 }
 

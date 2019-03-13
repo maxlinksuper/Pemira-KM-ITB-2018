@@ -33,10 +33,9 @@
         </div>
     </div>
 
-    <div class="row justify-content-center" id="candidate-container">
-        <script src="js/calon.js"></script>
+    <div class="row justify-content-center" id="candidate-container2">
 
-        <div class="col-2 candidate text-center justify-content-center" >
+        <!-- <div class="col-2 candidate text-center justify-content-center" >
             <div class="kawung-kecil">
                 <img src="img/kawung-5.png" class="kawung-img" id="kawung0">
                 <div class="number">
@@ -60,15 +59,15 @@
                 <img src="img/man1.png" class="candidate-img filter"  id="candidate1" onclick="select(1);">
             </div>
             <span class="candidate-name">Nama bla bla bli</span>
-        </div>
+        </div> -->
 
     </div>
-    <div id="selected" style="display: none;">999</div>
+    <div id="selected2" style="display: none;">8</div>
 
     <div class="oke yes" id="tombol">
-        <img src="img/bercak-belum-kiri.png" class="bercak ya" id="bercak-kiri">
-        <button class="d-block rule-button grande" id="lanjut">OK</button>
-        <img src="img/bercak-belum-kanan.png" class="bercak" id="bercak-kanan">
+        <img src="img/bercak-ya-kiri.png" class="bercak ya" id="bercak-kiri">
+        <button class="d-block rule-button grande" id="YA5">OK</button>
+        <img src="img/bercak-ya-kanan.png" class="bercak" id="bercak-kanan">
     </div>
 
     <div id="ornamen-kanan">
@@ -89,9 +88,11 @@
     function countdownComplete(unit, value, total){
         if(total<=0){
             $(this).fadeOut('slow').replaceWith("<h2>Time's Up!</h2>");
-            remote.getGlobal('sharedObj').pilihanKM = document.getElementById("selected").innerHTML;
-            ipc.send('choose',1);
+            remote.getGlobal('sharedObj').pilihanKM = document.getElementById("selected2").innerHTML;
+            // ipc.send('choose',2);
         }
     }
 </script>
+<script src="js/process.js"></script>
+<script src="js/calon.js"></script>
 </body>

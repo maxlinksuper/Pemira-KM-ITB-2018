@@ -99,7 +99,9 @@ if(choose) {
 
 function select2(index_candidate) {
     var prev = document.getElementById("selected2").innerHTML;
-    var choose2 = document.getElementById('pilih2');
+    console.log(prev);
+    console.log(index_candidate);
+    // var choose2 = document.getElementById('pilih2');
     var x = document.getElementsByClassName("candidate");
     var y = document.getElementsByClassName("kawung-img");
     var z = document.getElementsByClassName("candidate-img");
@@ -116,13 +118,16 @@ function select2(index_candidate) {
         x[prev].classList.remove("candidate-active");
         y[prev].classList.remove("kawung-img-active");
         z[prev].classList.add("filter");
-    }
-    if (choose2) {
-        choose2.addEventListener("click", function(){
-            remote.getGlobal('sharedObj').pilihanMWA = document.getElementById("selected2").innerHTML;
-            ipc.send('choose', 2);
-        })
-    }
+    }   
+}
+
+var choose2 = document.getElementById("YA5");
+if (choose2) {
+    choose2.addEventListener("click", function(){
+        remote.getGlobal('sharedObj').pilihanMWA = document.getElementById("selected2").innerHTML;
+        console.log(remote.getGlobal('sharedObj').pilihanMWA);
+        ipc.send('choose', 2);
+    })
 }
 
 var thank = document.getElementById("thanks");

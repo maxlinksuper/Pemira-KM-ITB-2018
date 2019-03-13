@@ -8,19 +8,23 @@ if(calon) {
             type: 1
         }
     }). then(function (response) {
+        console.log(response);
         var c = response.data;
         const container = document.getElementById("candidate-container");
         var i = 0;
         c.forEach(element => {
             container.innerHTML += `
-            <div class="col-2 candidate" id="candidate${i}" onclick="select1(${i});">
-                <div class="kawung-kecil">
-                    <img src="${element.img}" class="kawung-img">
+            <div class="col-2 candidate text-center justify-content-center" >
+            <div class="kawung-kecil">
+                <img src="img/kawung-4.png" class="kawung-img" id="kawung${i}">
+                <div class="number">
+                    ${i+1}
                 </div>
-                <div class="inside">
-                    <img src="img/man1.png" class="candidate-img filter">
-                    <p>${element.nama}</p>
-                </div>
+            </div>
+            <div class="box row justify-content-center">
+                <img src="img/${element.img}" class="candidate-img filter" id="candidate${i}" onclick="select(${i});">
+            </div>
+            <span class="candidate-name">${element.nama}</span>
             </div>
             `;
             i = i + 1;
@@ -31,7 +35,7 @@ if(calon) {
 if (calon2) {
     axios.get('http://' + remote.getGlobal('sharedObj').host + '/calon.php', {
         params: {
-            type: 1
+            type: 2
         }
     }). then(function (response) {
         var c = response.data;
@@ -39,14 +43,17 @@ if (calon2) {
         var j = 0;
         c.forEach(element => {
             container.innerHTML += `
-            <div class="col-2 candidate" id="candidate${j}" onclick="select2(${j});">
-                <div class="kawung-kecil">
-                    <img src="img/kawung.png" class="kawung-img">
+            <div class="col-2 candidate text-center justify-content-center" >
+            <div class="kawung-kecil">
+                <img src="img/kawung-4.png" class="kawung-img" id="kawung${j}">
+                <div class="number">
+                    ${j+1}
                 </div>
-                <div class="inside">
-                    <img src="img/man1.png" class="candidate-img filter">
-                    <p>${element.nama}</p>
-                </div>
+            </div>
+            <div class="box row justify-content-center">
+                <img src="img/${element.img}" class="candidate-img filter" id="candidate${j}" onclick="select2(${j});">
+            </div>
+            <span class="candidate-name">${element.nama}</span>
             </div>
             `;
             j = j + 1;

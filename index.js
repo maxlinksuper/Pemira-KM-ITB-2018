@@ -165,7 +165,6 @@ ipc.on('nim-pemilih', function(event, arg) {
         nim: arg,
         cmd: 1  
     }).then(function (response) {
-        // console.log(response);
         if (response.data.found == 0) {
             dialog.showErrorBox("Telah Memilih", "Anda sudah menggunakan kesempatan memilih anda");
         }
@@ -198,8 +197,6 @@ ipc.on('readrule', function(event, arg) {
 });
 
 ipc.on('choose', function(event, arg1) {
-    // console.log(global.sharedObj);
-    // console.log(global.sharedObj.pilihanKM);
     if (arg1 == 1) {
         if (global.sharedObj.pilihanKM == 0) {
             mainWindow.loadFile('president-confirmation.html');
@@ -241,7 +238,6 @@ ipc.on('confirm', function(event, arg) {
                 kode: global.sharedObj.nimPemilih.substring(0,3),
                 cmd:4
             }).then(function(response) { 
-                // console.log(response);
             });
             mainWindow.loadFile('thanks.html')
         }
@@ -280,7 +276,6 @@ ipc.on('signin', function(event,arg) {
         pwd: arg,
         cmd: 3
     }).then(function(response) {
-        // console.log(response);
         if (response.data.found == 0) {
             dialog.showErrorBox("Password Salah", "Masukkan kembali password anda");
         }
@@ -299,7 +294,6 @@ ipc.on('resetnim', function(event,arg) {
         nim: arg,
         cmd: 6
     }).then(function() {
-        // console.log(response);
         dialog.showMessageBox({
             type : 'info',
             message: 'NIM bisa melakukan pemilihan sekali lagi'
