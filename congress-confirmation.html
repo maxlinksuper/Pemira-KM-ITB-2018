@@ -21,16 +21,7 @@
     </div>
 
     <div class="col-2 candidate text-center justify-content-center confirmation-candidate" id="candidate">
-        <div class="kawung-kecil">
-            <img src="img/kawung-5.png" class="kawung-img kawung-img-active" id="kawung0">
-            <div class="number">
-                1
-            </div>
-        </div>
-        <div class="box row justify-content-center">
-            <img src="img/mans1.png" class="candidate-img-active">
-        </div>
-        <span class="candidate-name">Nama bla bla bla</span>
+
     </div>
 
     <div class="oke yes">
@@ -52,4 +43,20 @@
     </div>
 </div>
 <script src="js/process.js"></script>
+<script>
+        var i = parseInt(remote.getGlobal('sharedObj').pilihanMWA) + 1;
+        var j = remote.getGlobal('sharedObj').namaPilMWA;
+        document.getElementById("candidate").innerHTML += `
+                <div class="kawung-kecil">
+                    <img src="img/kawung-5.png" class="kawung-img kawung-img-active" id="kawung0">
+                    <div class="number">
+                        ${i}
+                    </div>
+                </div>
+                <div class="box row justify-content-center">
+                    <img src="img/calon${i}.png" class="candidate-img-active">
+                </div>
+                <span class="candidate-name">${j}</span>
+                `
+        </script>
 </body>

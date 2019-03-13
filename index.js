@@ -8,7 +8,7 @@ const axios = require ('axios');
 var count = 0;
 var KMactive = 1;
 var MWAactive = 0;
-global.sharedObj = {pilihanKM: -1, pilihanMWA: -1, host: "localhost", nimPemilih: ""};
+global.sharedObj = {pilihanKM: -1, pilihanMWA: -1, host: "localhost", nimPemilih: "", namaPilKM: "", namaPilMWA:""};
 
 const { app , BrowserWindow, globalShortcut } = require ('electron');
 
@@ -197,13 +197,11 @@ ipc.on('readrule', function(event, arg) {
 });
 
 ipc.on('choose', function(event, arg1) {
+    console.log(global.sharedObj.namaPilKM);
+    console.log(global.sharedObj.namaPilMWA);
+    console.log("masuk");
     if (arg1 == 1) {
-        if (global.sharedObj.pilihanKM == 0) {
-            mainWindow.loadFile('president-confirmation.html');
-        }
-        else {
-            mainWindow.loadFile('president-confirmation-abstain.html');
-        }
+        mainWindow.loadFile('president-confirmation.html');
     }
     else {
         mainWindow.loadFile('congress-confirmation.html');
@@ -234,7 +232,7 @@ ipc.on('confirm', function(event, arg) {
             console.log(global.sharedObj.pilihanKM);
             axios.post('http://' + global.sharedObj.host + '/test.php', {
                 pilKM: parseInt(global.sharedObj.pilihanKM)+1,
-                pilMWA: global.sharedObj.pilihanMWA+1,
+                pilMWA: parseInt(global.sharedObj.pilihanMWA)+1,
                 kode: global.sharedObj.nimPemilih.substring(0,3),
                 cmd:4
             }).then(function(response) { 
@@ -244,8 +242,8 @@ ipc.on('confirm', function(event, arg) {
     }
     else {
         axios.post('http://' + global.sharedObj.host + '/test.php', {
-            pilKM: global.sharedObj.pilihanKM+1,
-            pilMWA: global.sharedObj.pilihanMWA+1,
+            pilKM: parseInt(global.sharedObj.pilihanKM)+1,
+            pilMWA: parseInt(global.sharedObj.pilihanMWA)+1,
             kode: global.sharedObj.nimPemilih.substring(0,3),
             cmd: 4
         }).then(function(response) {

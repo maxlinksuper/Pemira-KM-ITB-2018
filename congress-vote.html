@@ -81,7 +81,7 @@
 <script>
     $("#CountDownTimer").TimeCircles({ time: { Days: { show: false }, Hours: { show: false }, Minutes: { show: false } }});
     $("#CountDownTimer").TimeCircles({count_past_zero: false});
-    $("#CountDownTimer").TimeCircles({total_duration: 20});
+    $("#CountDownTimer").TimeCircles({total_duration: 5});
 
     $("#CountDownTimer").TimeCircles({count_past_zero: false}).addListener(countdownComplete);
 
@@ -89,7 +89,7 @@
         if(total<=0){
             $(this).fadeOut('slow').replaceWith("<h2>Time's Up!</h2>");
             remote.getGlobal('sharedObj').pilihanKM = document.getElementById("selected2").innerHTML;
-            // ipc.send('choose',2);
+            ipc.send('choose',2);
         }
     }
 </script>

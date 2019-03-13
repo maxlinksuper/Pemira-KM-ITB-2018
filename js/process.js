@@ -92,7 +92,9 @@ var choose = document.getElementById("YA2");
 if(choose) {
     choose.addEventListener("click", function(){
         remote.getGlobal('sharedObj').pilihanKM = document.getElementById("selected").innerHTML;
-        console.log(remote.getGlobal('sharedObj').pilihanKM);
+        var i = parseInt(document.getElementById("selected").innerHTML);
+        remote.getGlobal('sharedObj').namaPilKM = document.getElementsByClassName("candidate-name")[i].innerHTML;
+        console.log(remote.getGlobal('sharedObj').namaPilKM);
         ipc.send('choose', 1);
     });
 }
@@ -125,7 +127,8 @@ var choose2 = document.getElementById("YA5");
 if (choose2) {
     choose2.addEventListener("click", function(){
         remote.getGlobal('sharedObj').pilihanMWA = document.getElementById("selected2").innerHTML;
-        console.log(remote.getGlobal('sharedObj').pilihanMWA);
+        var i = parseInt(document.getElementById("selected2").innerHTML);
+        remote.getGlobal('sharedObj').namaPilMWA = document.getElementsByClassName("candidate-name")[i].innerHTML;
         ipc.send('choose', 2);
     })
 }
