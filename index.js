@@ -197,14 +197,21 @@ ipc.on('readrule', function(event, arg) {
 });
 
 ipc.on('choose', function(event, arg1) {
-    console.log(global.sharedObj.namaPilKM);
-    console.log(global.sharedObj.namaPilMWA);
-    console.log("masuk");
     if (arg1 == 1) {
+        if (global.sharedObj.pilKM == 8 || 0) {
+            mainWindow.loadFile('president-confirmation-abstain.html');
+        }
+        else {
         mainWindow.loadFile('president-confirmation.html');
+        }
     }
     else {
+        if (global.sharedObj.pilMWA == 8 || 0) {
+            mainWindow.loadFile('congress-confirmation-abstain.html');
+        }
+        else {
         mainWindow.loadFile('congress-confirmation.html');
+        }
     }
 });
 

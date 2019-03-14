@@ -89,6 +89,10 @@
         if(total<=0){
             $(this).fadeOut('slow').replaceWith("<h2>Time's Up!</h2>");
             remote.getGlobal('sharedObj').pilihanKM = document.getElementById("selected").innerHTML;
+            if (!(remote.getGlobal('sharedObj').pilihanKM == 8 || 0)) {
+                var i = parseInt(document.getElementById("selected").innerHTML);
+                remote.getGlobal('sharedObj').namaPilKM = document.getElementsByClassName("candidate-name")[i].innerHTML;
+            }
             ipc.send('choose',1);
         }
     }

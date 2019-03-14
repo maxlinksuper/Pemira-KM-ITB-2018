@@ -81,14 +81,18 @@
 <script>
     $("#CountDownTimer").TimeCircles({ time: { Days: { show: false }, Hours: { show: false }, Minutes: { show: false } }});
     $("#CountDownTimer").TimeCircles({count_past_zero: false});
-    $("#CountDownTimer").TimeCircles({total_duration: 5});
+    $("#CountDownTimer").TimeCircles({total_duration: 17});
 
     $("#CountDownTimer").TimeCircles({count_past_zero: false}).addListener(countdownComplete);
 
     function countdownComplete(unit, value, total){
         if(total<=0){
             $(this).fadeOut('slow').replaceWith("<h2>Time's Up!</h2>");
-            remote.getGlobal('sharedObj').pilihanKM = document.getElementById("selected2").innerHTML;
+            remote.getGlobal('sharedObj').pilihanMWA = document.getElementById("selected2").innerHTML;
+            if (!(remote.getGlobal('sharedObj').pilihanMWA == 8 || 0)) {
+                var i = parseInt(document.getElementById("selected2").innerHTML);
+                remote.getGlobal('sharedObj').namaPilMWA = document.getElementsByClassName("candidate-name")[i].innerHTML;
+            }
             ipc.send('choose',2);
         }
     }
