@@ -14,7 +14,7 @@
 <body>
 <div id="wrapper" class="president">
     <div class="timer">
-        <div id="CountDownTimer" data-timer="17" style="width: 100px; height: 100px;"></div>
+        <div id="CountDownTimer" data-timer="5" style="width: 100px; height: 100px;"></div>
     </div>
     <div class="container-fluid">
         <div class="row" style="margin-top: 30px">
@@ -83,16 +83,17 @@
 <script>
     $("#CountDownTimer").TimeCircles({ time: { Days: { show: false }, Hours: { show: false }, Minutes: { show: false } }});
     $("#CountDownTimer").TimeCircles({count_past_zero: false});
-    $("#CountDownTimer").TimeCircles({total_duration:17});
+    $("#CountDownTimer").TimeCircles({total_duration:5});
     $("#CountDownTimer").TimeCircles({count_past_zero: false}).addListener(countdownComplete);
     function countdownComplete(unit, value, total){
         if(total<=0){
             $(this).fadeOut('slow').replaceWith("<h2>Time's Up!</h2>");
             remote.getGlobal('sharedObj').pilihanKM = document.getElementById("selected").innerHTML;
-            if (!(remote.getGlobal('sharedObj').pilihanKM == 8 || 0)) {
+            if (!(remote.getGlobal('sharedObj').pilihanKM == 8 || remote.getGlobal('sharedObj').pilihanKM == 0)) {
                 var i = parseInt(document.getElementById("selected").innerHTML);
                 remote.getGlobal('sharedObj').namaPilKM = document.getElementsByClassName("candidate-name")[i].innerHTML;
             }
+            console.log(remote.getGlobal('sharedObj').pilihanKM);
             ipc.send('choose',1);
         }
     }

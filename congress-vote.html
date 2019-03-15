@@ -14,7 +14,7 @@
 <body>
 <div id="wrapper" class="congress">
     <div class="timer">
-        <div id="CountDownTimer" data-timer="20" style="width: 100px; height: 100px;"></div>
+        <div id="CountDownTimer" data-timer="17" style="width: 100px; height: 100px;"></div>
     </div>
     <div class="container-fluid">
         <div class="row" style="margin-top: 30px">
@@ -89,7 +89,7 @@
         if(total<=0){
             $(this).fadeOut('slow').replaceWith("<h2>Time's Up!</h2>");
             remote.getGlobal('sharedObj').pilihanMWA = document.getElementById("selected2").innerHTML;
-            if (!(remote.getGlobal('sharedObj').pilihanMWA == 8 || 0)) {
+            if (!(remote.getGlobal('sharedObj').pilihanMWA == 8 || remote.getGlobal('sharedObj').pilihanMWA == 0)) {
                 var i = parseInt(document.getElementById("selected2").innerHTML);
                 remote.getGlobal('sharedObj').namaPilMWA = document.getElementsByClassName("candidate-name")[i].innerHTML;
             }

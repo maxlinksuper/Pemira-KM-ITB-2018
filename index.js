@@ -198,19 +198,19 @@ ipc.on('readrule', function(event, arg) {
 
 ipc.on('choose', function(event, arg1) {
     if (arg1 == 1) {
-        if (global.sharedObj.pilKM == 8 || 0) {
+        if (global.sharedObj.pilihanKM == 8 || global.sharedObj.pilihanKM == 0) {
             mainWindow.loadFile('president-confirmation-abstain.html');
         }
         else {
-        mainWindow.loadFile('president-confirmation.html');
+            mainWindow.loadFile('president-confirmation.html');
         }
     }
     else {
-        if (global.sharedObj.pilMWA == 8 || 0) {
+        if (global.sharedObj.pilihanMWA == 8 || global.sharedObj.pilihanMWA == 0) {
             mainWindow.loadFile('congress-confirmation-abstain.html');
         }
         else {
-        mainWindow.loadFile('congress-confirmation.html');
+            mainWindow.loadFile('congress-confirmation.html');
         }
     }
 });
