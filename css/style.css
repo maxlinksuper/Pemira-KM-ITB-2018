@@ -611,11 +611,14 @@ input {
 .pemira {
     font-family: "GrandeeCP", SansSerif;
     font-size: 40px;
+    text-align: center;
 }
 
 .title-desc {
     font-family: "GrandeeCP", SansSerif;
     font-size: 25px;
+    padding-left: 60px;
+    text-align: center;
 }
 
 .heading {
@@ -627,6 +630,12 @@ input {
 .vote-logo {
     transform: translateY(17px);
     height: 60px;
+    width: auto;
+}
+
+.vote-logo-mwawm {
+    transform: translateY(8px);
+    height: 90px;
     width: auto;
 }
 
