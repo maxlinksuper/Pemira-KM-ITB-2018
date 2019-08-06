@@ -47,6 +47,7 @@
 <script>
 var i = parseInt(remote.getGlobal('sharedObj').pilihanKM) + 1;
 var j = remote.getGlobal('sharedObj').namaPilKM;
+var k = remote.getGlobal('sharedObj').imgPilKM;
 document.getElementById("candidate").innerHTML += `
         <div class="kawung-kecil">
             <img src="img/kawung-4.png" class="kawung-img kawung-img-active" id="kawung0">
@@ -55,7 +56,7 @@ document.getElementById("candidate").innerHTML += `
             </div>
         </div>
         <div class="box row justify-content-center">
-            <img src="img/calonKM${i}.png" class="candidate-img-active">
+            <img src=${k} class="candidate-img-active">
         </div>
         <span class="candidate-name">${j}</span>
         `

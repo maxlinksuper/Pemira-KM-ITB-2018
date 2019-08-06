@@ -8,7 +8,7 @@ const axios = require ('axios');
 var count = 0;
 var KMactive = 1;
 var MWAactive = 0;
-global.sharedObj = {pilihanKM: -1, pilihanMWA: -1, host: "localhost", nimPemilih: "", namaPilKM: "", namaPilMWA:""};
+global.sharedObj = {pilihanKM: -1, pilihanMWA: -1, host: "localhost", nimPemilih: "", imgPilKM:"", namaPilKM: "", namaPilMWA:""};
 
 const { app , BrowserWindow, globalShortcut } = require ('electron');
 
@@ -198,7 +198,7 @@ ipc.on('readrule', function(event, arg) {
 
 ipc.on('choose', function(event, arg1) {
     if (arg1 == 1) {
-        if (global.sharedObj.pilihanKM == 8 || global.sharedObj.pilihanKM == 0) {
+        if (global.sharedObj.pilihanKM == 8) {
             mainWindow.loadFile('president-confirmation-abstain.html');
         }
         else {
@@ -206,11 +206,17 @@ ipc.on('choose', function(event, arg1) {
         }
     }
     else {
-        if (global.sharedObj.pilihanMWA == 8 || global.sharedObj.pilihanMWA == 0) {
+        if (global.sharedObj.pilihanMWA == 8) {
             mainWindow.loadFile('congress-confirmation-abstain.html');
         }
         else {
-            mainWindow.loadFile('congress-confirmation.html');
+            console.log(global.sharedObj.pilihanMWA);
+            if (global.sharedObj.pilihanMWA == 0) {
+                mainWindow.loadFile('congress-confirmation1.html');
+            }
+            else {
+                mainWindow.loadFile('congress-confirmation2.html')
+            }
         }
     }
 });

@@ -5,14 +5,15 @@ var calon2 = document.getElementById("candidate-container2");
 if(calon) {
     axios.get('http://' + remote.getGlobal('sharedObj').host + '/calon.php', {
         params: {
-            type: 1
+            type: 0
         }
     }). then(function (response) {
-        console.log(response);
         var c = response.data;
         const container = document.getElementById("candidate-container");
         var i = 0;
         c.forEach(element => {
+            console.log(element.img);
+            console.log()
             container.innerHTML += `
             <div class="col-2 candidate text-center justify-content-center" >
             <div class="kawung-kecil">
@@ -22,7 +23,7 @@ if(calon) {
                 </div>
             </div>
             <div class="box row justify-content-center">
-                <img src="img/${element.img}" class="candidate-img filter" id="candidate${i}" onclick="select(${i});">
+                <img async src=${element.img} class="candidate-img filter" id="candidate${i}" onclick="select(${i});">
             </div>
             <span class="candidate-name">${element.nama}</span>
             </div>
@@ -35,7 +36,7 @@ if(calon) {
 if (calon2) {
     axios.get('http://' + remote.getGlobal('sharedObj').host + '/calon.php', {
         params: {
-            type: 2
+            type: 1
         }
     }). then(function (response) {
         var c = response.data;
@@ -51,7 +52,7 @@ if (calon2) {
                 </div>
             </div>
             <div class="box row justify-content-center">
-                <img src="img/${element.img}" class="candidate-img filter" id="candidate${j}" onclick="selects(${j});">
+                <img src="img/${element.img}" class="candidate-img filter" id="candidate${j}" onclick="select2(${j});">
             </div>
             <span class="candidate-name">${element.nama}</span>
             </div>

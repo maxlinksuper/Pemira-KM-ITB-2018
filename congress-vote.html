@@ -23,7 +23,7 @@
                 <img src="img/logo-mwawm-blank.png" class="heading vote-logo-mwawm">
                 <div class="title heading">
                     <span class="pemira">Pemira MWA WM ITB 2019</span><br>
-                    <span class="title-desc" style="margin-left: 20px">Kandidat Ketua MWA WM ITB</span>
+                    <span class="title-desc" style="margin-left: 20px">Kandidat MWA WM ITB</span>
                 </div>
                 <img src="img/logo-kongres-blank.png" class="heading vote-logo">
             </div>
@@ -36,7 +36,7 @@
 
     <div class="row justify-content-center" id="candidate-container2">
 
-        <!-- <div class="col-2 candidate text-center justify-content-center" >
+        <div class="col-2 candidate text-center justify-content-center" >
             <div class="kawung-kecil">
                 <img src="img/kawung-5.png" class="kawung-img" id="kawung0">
                 <div class="number">
@@ -44,9 +44,9 @@
                 </div>
             </div>
             <div class="box row justify-content-center">
-                <img src="img/man2.png" class="candidate-img filter" id="candidate0" onclick="select(0);">
+                <img src="img/calonMWA1.png" class="candidate-img" id="candidate0" onclick="selects(0);">
             </div>
-            <span class="candidate-name">Nama bla bla bla</span>
+            <span class="candidate-name">FAISAL ALVIANSYAH MAHARDHIKA</span>
         </div>
 
         <div class="col-2 candidate text-center justify-content-center">
@@ -57,10 +57,10 @@
                 </div>
             </div>
             <div class="box row justify-content-center">
-                <img src="img/man1.png" class="candidate-img filter"  id="candidate1" onclick="select(1);">
+                <img src="img/calonMWA2.png" class="candidate-img"  id="candidate1" onclick="selects(1);">
             </div>
-            <span class="candidate-name">Nama bla bla bli</span>
-        </div> -->
+            <span class="candidate-name">DANCENT SUTANTO</span>
+        </div>
 
     </div>
     <div id="selected2" style="display: none;">8</div>
@@ -90,7 +90,7 @@
         if(total<=0){
             $(this).fadeOut('slow').replaceWith("<h2>Time's Up!</h2>");
             remote.getGlobal('sharedObj').pilihanMWA = document.getElementById("selected2").innerHTML;
-            if (!(remote.getGlobal('sharedObj').pilihanMWA == 8 || remote.getGlobal('sharedObj').pilihanMWA == 0)) {
+            if (!(remote.getGlobal('sharedObj').pilihanMWA == 8)) {
                 var i = parseInt(document.getElementById("selected2").innerHTML);
                 remote.getGlobal('sharedObj').namaPilMWA = document.getElementsByClassName("candidate-name")[i].innerHTML;
             }
@@ -99,5 +99,5 @@
     }
 </script>
 <script src="js/process.js"></script>
-<script src="js/calon.js"></script>
+<!-- <script src="js/calon.js"></script> -->
 </body>

@@ -91,10 +91,13 @@ function select1(index_candidate) {
 var choose = document.getElementById("YA2");
 if(choose) {
     choose.addEventListener("click", function(){
+        tempNum = "candidate" + document.getElementById("selected").innerHTML;
         remote.getGlobal('sharedObj').pilihanKM = document.getElementById("selected").innerHTML;
+        remote.getGlobal('sharedObj').imgPilKM = document.getElementById(tempNum).src;
         var i = parseInt(document.getElementById("selected").innerHTML);
         remote.getGlobal('sharedObj').namaPilKM = document.getElementsByClassName("candidate-name")[i].innerHTML;
         console.log(remote.getGlobal('sharedObj').namaPilKM);
+        console.log(remote.getGlobal('sharedObj').imgPilKM);
         ipc.send('choose', 1);
     });
 }
@@ -189,19 +192,19 @@ if (insertDatabasePassword) {
     })
 }
 
-var addCandidate = document.getElementById("addcandidate");
-if (addCandidate) {
-    addCandidate.addEventListener("click", function(event) {
-       var name = document.getElementById("name").value;
-       var nim = document.getElementById("nim").value;
-       var from = document.getElementById("from").value;
-       var img = document.getElementById("img").value; 
-       ipc.send('addCandidate', name, nim, from, img);
-       console.log("Sent from form");
-       console.log(name);
-       console.log(nim);
-       console.log(from);
-       console.log(img);
-    });
-}
+// var addCandidate = document.getElementById("addcandidate");
+// if (addCandidate) {
+//     addCandidate.addEventListener("click", function(event) {
+//        var name = document.getElementById("name").value;
+//        var nim = document.getElementById("nim").value;
+//        var from = document.getElementById("from").value;
+//        var img = document.getElementById("img").value; 
+//        ipc.send('addCandidate', name, nim, from, img);
+//        console.log("Sent from form");
+//        console.log(name);
+//        console.log(nim);
+//        console.log(from);
+//        console.log(img);
+//     });
+// }
 

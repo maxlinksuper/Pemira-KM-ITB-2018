@@ -38,35 +38,40 @@ $(document).ready( function() {
         readURL(this, function(base64Image) {
             $('#img-upload').attr('src', base64Image);
             $('#image').attr('value', base64Image);
+            console.log(base64Image);
+            console.log($('#name').val());
+            console.log($('#nim').val());
+            console.log(remote.getGlobal('sharedObj').host);
         });
 
         // Backend - POST with JQuery
 
     });
 
-    $('#formID').submit(function(event) {
+    $('#formID').click(function(event) {
         console.log("Tersubmit")
         if (this.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
         }
         else {
-            var dari = -1;
+            var cDari = -1;
             if (document.getElementById('president').checked == true) {
                 console.log("President checked")
-                dari = 0;
+                cDari = 0;
             }
             if (document.getElementById('congress').checked == true) {
                 console.log("Mwa checked")
-                dari = 1;
+                cDari = 1;
             }
-            console.log(dari);
+            console.log(cDari);
             readURL($("#imgInp")[0], function(base64Image) {
-                $.post( 'http://' + remote.getGlobal('sharedObj').host + '/test.php', {
+                console.log(base64Image);
+                $.post( 'http://' + remote.getGlobal('sharedObj').host + '/addCalon.php', {
                         nama : $('#name').val(),
                         nim : $('#nim').val(),
-                        cDari : dari,
-                        image : base64Image,
+                        dari : cDari,
+                        img : base64Image,
                         cmd : 5},
 
                     function(data, status){
