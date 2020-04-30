@@ -22,7 +22,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "electron": "^3.1.6",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "npm": "^6.7.0",
     "smalltalk": "^3.2.2"
   },
