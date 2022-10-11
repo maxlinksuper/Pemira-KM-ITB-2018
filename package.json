@@ -27,6 +27,6 @@
     "smalltalk": "^3.2.2"
   },
   "devDependencies": {
-    "electron-packager": "^12.2.0"
+    "electron-packager": "^16.0.0"
   }
 }
